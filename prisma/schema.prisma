@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Cliente {
+  id            String        @id @default(cuid())
+  nombre        String
+  nit           String?
+  telefono      String?
+  email         String?
+  direccion     String?
+  liquidaciones Liquidacion[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@map("clientes")
+}
+
+model Liquidacion {
+  id              String              @id @default(cuid())
+  numero          String              @unique
+  fecha           DateTime
+  clienteId       String
+  cliente         Cliente             @relation(fields: [clienteId], references: [id])
+  ordenProduccion String?
+  referencia      String?
+  observaciones   String?
+  estado          EstadoLiquidacion   @default(borrador)
+  rollos          Rollo[]
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@index([clienteId])
+  @@index([numero])
+  @@map("liquidaciones")
+}
+
+model Rollo {
+  id              String      @id @default(cuid())
+  liquidacionId   String
+  liquidacion     Liquidacion @relation(fields: [liquidacionId], references: [id], onDelete: Cascade)
+  numero          Int
+  colorTela       String
+  colorHex        String
+  metrosIniciales Float
+  espigas         Espiga[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  @@index([liquidacionId])
+  @@map("rollos")
+}
+
+model Espiga {
+  id          String   @id @default(cuid())
+  rolloId     String
+  rollo       Rollo    @relation(fields: [rolloId], references: [id], onDelete: Cascade)
+  numero      Int
+  largoTrazo  Float
+  numeroCapas Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([rolloId])
+  @@map("espigas")
+}
+
+model Configuracion {
+  id                 String   @id @default(cuid())
+  nombreEmpresa      String   @default("RED W & GOLD S.A.S")
+  telefono           String   @default("320 694 81 38")
+  siguienteNumero    Int      @default(1)
+  prefijoLiquidacion String   @default("")
+  updatedAt          DateTime @updatedAt
+
+  @@map("configuracion")
+}
+
+enum EstadoLiquidacion {
+  borrador
+  en_proceso
+  finalizada
+}
