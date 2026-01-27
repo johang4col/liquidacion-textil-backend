@@ -8,10 +8,10 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/User.js'
-export type * from './models/Cliente.js'
-export type * from './models/Liquidacion.js'
-export type * from './models/Rollo.js'
-export type * from './models/Espiga.js'
-export type * from './models/Configuracion.js'
-export type * from './commonInputTypes.js'
+export type * from './models/User'
+export type * from './models/Cliente'
+export type * from './models/Liquidacion'
+export type * from './models/Rollo'
+export type * from './models/Espiga'
+export type * from './models/Configuracion'
+export type * from './commonInputTypes'

@@ -12,15 +12,17 @@
  */
 
 import * as runtime from "@prisma/client/runtime/client"
-import type * as Prisma from "./prismaNamespace.js"
+import type * as Prisma from "./prismaNamespace"
 
 
 const config: runtime.GetPrismaClientConfig = {
-  "previewFeatures": [],
+  "previewFeatures": [
+    "driverAdapters"
+  ],
   "clientVersion": "7.3.0",
   "engineVersion": "9d6ad21cbbceab97458517b147a6a09ff43aa735",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id        String   @id @default(cuid())\n  email     String   @unique\n  name      String?\n  password  String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  @@map(\"users\")\n}\n\nmodel Cliente {\n  id            String        @id @default(cuid())\n  nombre        String\n  nit           String?\n  telefono      String?\n  email         String?\n  direccion     String?\n  liquidaciones Liquidacion[]\n  createdAt     DateTime      @default(now())\n  updatedAt     DateTime      @updatedAt\n\n  @@map(\"clientes\")\n}\n\nmodel Liquidacion {\n  id              String            @id @default(cuid())\n  numero          String            @unique\n  fecha           DateTime\n  clienteId       String\n  cliente         Cliente           @relation(fields: [clienteId], references: [id])\n  ordenProduccion String?\n  referencia      String?\n  observaciones   String?\n  estado          EstadoLiquidacion @default(borrador)\n  rollos          Rollo[]\n  createdAt       DateTime          @default(now())\n  updatedAt       DateTime          @updatedAt\n\n  @@index([clienteId])\n  @@index([numero])\n  @@map(\"liquidaciones\")\n}\n\nmodel Rollo {\n  id              String      @id @default(cuid())\n  liquidacionId   String\n  liquidacion     Liquidacion @relation(fields: [liquidacionId], references: [id], onDelete: Cascade)\n  numero          Int\n  colorTela       String\n  colorHex        String\n  metrosIniciales Float\n  espigas         Espiga[]\n  createdAt       DateTime    @default(now())\n  updatedAt       DateTime    @updatedAt\n\n  @@index([liquidacionId])\n  @@map(\"rollos\")\n}\n\nmodel Espiga {\n  id          String   @id @default(cuid())\n  rolloId     String\n  rollo       Rollo    @relation(fields: [rolloId], references: [id], onDelete: Cascade)\n  numero      Int\n  largoTrazo  Float\n  numeroCapas Float\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  @@index([rolloId])\n  @@map(\"espigas\")\n}\n\nmodel Configuracion {\n  id                 String   @id @default(cuid())\n  nombreEmpresa      String   @default(\"RED W & GOLD S.A.S\")\n  telefono           String   @default(\"320 694 81 38\")\n  siguienteNumero    Int      @default(1)\n  prefijoLiquidacion String   @default(\"\")\n  updatedAt          DateTime @updatedAt\n\n  @@map(\"configuracion\")\n}\n\nenum EstadoLiquidacion {\n  borrador\n  en_proceso\n  finalizada\n}\n",
+  "inlineSchema": "generator client {\n  provider        = \"prisma-client\"\n  output          = \"../src/generated/prisma\"\n  previewFeatures = [\"driverAdapters\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel User {\n  id        String   @id @default(cuid())\n  email     String   @unique\n  name      String?\n  password  String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  @@map(\"users\")\n}\n\nmodel Cliente {\n  id            String        @id @default(cuid())\n  nombre        String\n  nit           String?\n  telefono      String?\n  email         String?\n  direccion     String?\n  liquidaciones Liquidacion[]\n  createdAt     DateTime      @default(now())\n  updatedAt     DateTime      @updatedAt\n\n  @@map(\"clientes\")\n}\n\nmodel Liquidacion {\n  id              String            @id @default(cuid())\n  numero          String            @unique\n  fecha           DateTime\n  clienteId       String\n  cliente         Cliente           @relation(fields: [clienteId], references: [id])\n  ordenProduccion String?\n  referencia      String?\n  observaciones   String?\n  estado          EstadoLiquidacion @default(borrador)\n  rollos          Rollo[]\n  createdAt       DateTime          @default(now())\n  updatedAt       DateTime          @updatedAt\n\n  @@index([clienteId])\n  @@index([numero])\n  @@map(\"liquidaciones\")\n}\n\nmodel Rollo {\n  id              String      @id @default(cuid())\n  liquidacionId   String\n  liquidacion     Liquidacion @relation(fields: [liquidacionId], references: [id], onDelete: Cascade)\n  numero          Int\n  colorTela       String\n  colorHex        String\n  metrosIniciales Float\n  espigas         Espiga[]\n  createdAt       DateTime    @default(now())\n  updatedAt       DateTime    @updatedAt\n\n  @@index([liquidacionId])\n  @@map(\"rollos\")\n}\n\nmodel Espiga {\n  id          String   @id @default(cuid())\n  rolloId     String\n  rollo       Rollo    @relation(fields: [rolloId], references: [id], onDelete: Cascade)\n  numero      Int\n  largoTrazo  Float\n  numeroCapas Float\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  @@index([rolloId])\n  @@map(\"espigas\")\n}\n\nmodel Configuracion {\n  id                 String   @id @default(cuid())\n  nombreEmpresa      String   @default(\"RED W & GOLD S.A.S\")\n  telefono           String   @default(\"320 694 81 38\")\n  siguienteNumero    Int      @default(1)\n  prefijoLiquidacion String   @default(\"\")\n  updatedAt          DateTime @updatedAt\n\n  @@map(\"configuracion\")\n}\n\nenum EstadoLiquidacion {\n  borrador\n  en_proceso\n  finalizada\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -37,10 +39,10 @@ async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Modul
 }
 
 config.compilerWasm = {
-  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs"),
+  getRuntime: async () => await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.js"),
 
   getQueryCompilerWasmModule: async () => {
-    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs")
+    const { wasm } = await import("@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.js")
     return await decodeBase64AsWasm(wasm)
   },
 
