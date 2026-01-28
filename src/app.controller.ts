@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 import { PrismaService } from './database/prisma/prisma.service';
+import { Public } from './modules/auth/decorators/public.decorator';
 
 @Controller()
 export class AppController {
@@ -9,15 +10,16 @@ export class AppController {
     private readonly prisma: PrismaService,
   ) {}
 
+  @Public()
   @Get()
   getHello(): string {
     return this.appService.getHello();
   }
 
+  @Public()
   @Get('test-db')
   async testDatabase() {
     try {
-      // Crear cliente de prueba
       const cliente = await this.prisma.cliente.create({
         data: {
           id: 'test-' + Date.now(),
@@ -28,7 +30,6 @@ export class AppController {
         },
       });
 
-      // Contar clientes
       const count = await this.prisma.cliente.count();
 
       return {

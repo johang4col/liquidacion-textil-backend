@@ -7,10 +7,11 @@ datasource db {
   provider = "postgresql"
 }
 model User {
-  id        String   @id @default(cuid())
+  id        String   @id
+  nombre    String   // Cambiar "name" por "nombre"
   email     String   @unique
-  name      String?
   password  String
+  activo    Boolean  @default(true) // Cambiar "active" por "activo"
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
