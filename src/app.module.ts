@@ -7,6 +7,7 @@ import { PrismaModule } from './database/prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ClientesModule } from './modules/clientes/clientes.module';
 import { LiquidacionesModule } from './modules/liquidaciones/liquidaciones.module';
+import { ConfiguracionModule } from './modules/configuracion/configuracion.module';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 
 @Module({
@@ -18,6 +19,7 @@ import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
     AuthModule,
     ClientesModule,
     LiquidacionesModule,
+    ConfiguracionModule,
   ],
   controllers: [AppController],
   providers: [
