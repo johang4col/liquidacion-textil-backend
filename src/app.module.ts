@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './database/prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ClientesModule } from './modules/clientes/clientes.module';
+import { LiquidacionesModule } from './modules/liquidaciones/liquidaciones.module';
 import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
 
 @Module({
@@ -14,6 +16,8 @@ import { JwtAuthGuard } from './modules/auth/guards/jwt-auth.guard';
     }),
     PrismaModule,
     AuthModule,
+    ClientesModule,
+    LiquidacionesModule,
   ],
   controllers: [AppController],
   providers: [
