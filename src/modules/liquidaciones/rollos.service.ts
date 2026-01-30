@@ -172,6 +172,8 @@ export class RollosService {
           colorTela: rolloOriginal.colorTela,
           colorHex: rolloOriginal.colorHex,
           metrosIniciales: rolloOriginal.metrosIniciales,
+          retazos: rolloOriginal.retazos,
+          sesgos: rolloOriginal.sesgos,
         },
       });
 

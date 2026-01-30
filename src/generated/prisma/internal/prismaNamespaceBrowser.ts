@@ -125,6 +125,8 @@ export const RolloScalarFieldEnum = {
   colorTela: 'colorTela',
   colorHex: 'colorHex',
   metrosIniciales: 'metrosIniciales',
+  retazos: 'retazos',
+  sesgos: 'sesgos',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

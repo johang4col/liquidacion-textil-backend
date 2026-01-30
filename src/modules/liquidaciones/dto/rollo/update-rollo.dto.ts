@@ -13,4 +13,14 @@ export class UpdateRolloDto {
   @IsNumber()
   @Min(0)
   metrosIniciales?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  retazos?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  sesgos?: number;
 }

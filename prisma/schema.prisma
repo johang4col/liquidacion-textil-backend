@@ -59,6 +59,8 @@ model Rollo {
   colorTela       String
   colorHex        String
   metrosIniciales Float
+  retazos         Float       @default(0)
+  sesgos          Float       @default(0)
   espigas         Espiga[]
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt

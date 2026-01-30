@@ -95,6 +95,8 @@ export class LiquidacionesService {
         rollos: {
           select: {
             metrosIniciales: true,
+            retazos: true,
+            sesgos: true,
             espigas: {
               select: {
                 largoTrazo: true,
@@ -117,11 +119,12 @@ export class LiquidacionesService {
       );
 
       const consumoTotal = liq.rollos.reduce((accRollo, rollo) => {
-        const consumoRollo = rollo.espigas.reduce(
+        const consumoEspigas = rollo.espigas.reduce(
           (accEspiga, espiga) =>
             accEspiga + espiga.largoTrazo * espiga.numeroCapas,
           0,
         );
+        const consumoRollo = consumoEspigas + rollo.retazos + rollo.sesgos;
         return accRollo + consumoRollo;
       }, 0);
 
