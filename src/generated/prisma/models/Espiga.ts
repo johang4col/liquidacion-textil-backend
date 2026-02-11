@@ -64,6 +64,7 @@ export type EspigaCountAggregateOutputType = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -108,6 +109,7 @@ export type EspigaCountAggregateInputType = {
   numero?: true
   largoTrazo?: true
   numeroCapas?: true
+  distribucionTallas?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -205,6 +207,7 @@ export type EspigaGroupByOutputType = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas: runtime.JsonValue
   createdAt: Date
   updatedAt: Date
   _count: EspigaCountAggregateOutputType | null
@@ -238,6 +241,7 @@ export type EspigaWhereInput = {
   numero?: Prisma.IntFilter<"Espiga"> | number
   largoTrazo?: Prisma.FloatFilter<"Espiga"> | number
   numeroCapas?: Prisma.FloatFilter<"Espiga"> | number
+  distribucionTallas?: Prisma.JsonFilter<"Espiga">
   createdAt?: Prisma.DateTimeFilter<"Espiga"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Espiga"> | Date | string
   rollo?: Prisma.XOR<Prisma.RolloScalarRelationFilter, Prisma.RolloWhereInput>
@@ -249,6 +253,7 @@ export type EspigaOrderByWithRelationInput = {
   numero?: Prisma.SortOrder
   largoTrazo?: Prisma.SortOrder
   numeroCapas?: Prisma.SortOrder
+  distribucionTallas?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   rollo?: Prisma.RolloOrderByWithRelationInput
@@ -263,6 +268,7 @@ export type EspigaWhereUniqueInput = Prisma.AtLeast<{
   numero?: Prisma.IntFilter<"Espiga"> | number
   largoTrazo?: Prisma.FloatFilter<"Espiga"> | number
   numeroCapas?: Prisma.FloatFilter<"Espiga"> | number
+  distribucionTallas?: Prisma.JsonFilter<"Espiga">
   createdAt?: Prisma.DateTimeFilter<"Espiga"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Espiga"> | Date | string
   rollo?: Prisma.XOR<Prisma.RolloScalarRelationFilter, Prisma.RolloWhereInput>
@@ -274,6 +280,7 @@ export type EspigaOrderByWithAggregationInput = {
   numero?: Prisma.SortOrder
   largoTrazo?: Prisma.SortOrder
   numeroCapas?: Prisma.SortOrder
+  distribucionTallas?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.EspigaCountOrderByAggregateInput
@@ -292,6 +299,7 @@ export type EspigaScalarWhereWithAggregatesInput = {
   numero?: Prisma.IntWithAggregatesFilter<"Espiga"> | number
   largoTrazo?: Prisma.FloatWithAggregatesFilter<"Espiga"> | number
   numeroCapas?: Prisma.FloatWithAggregatesFilter<"Espiga"> | number
+  distribucionTallas?: Prisma.JsonWithAggregatesFilter<"Espiga">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Espiga"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Espiga"> | Date | string
 }
@@ -301,6 +309,7 @@ export type EspigaCreateInput = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
   rollo: Prisma.RolloCreateNestedOneWithoutEspigasInput
@@ -312,6 +321,7 @@ export type EspigaUncheckedCreateInput = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -321,6 +331,7 @@ export type EspigaUpdateInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollo?: Prisma.RolloUpdateOneRequiredWithoutEspigasNestedInput
@@ -332,6 +343,7 @@ export type EspigaUncheckedUpdateInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -342,6 +354,7 @@ export type EspigaCreateManyInput = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -351,6 +364,7 @@ export type EspigaUpdateManyMutationInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -361,6 +375,7 @@ export type EspigaUncheckedUpdateManyInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -381,6 +396,7 @@ export type EspigaCountOrderByAggregateInput = {
   numero?: Prisma.SortOrder
   largoTrazo?: Prisma.SortOrder
   numeroCapas?: Prisma.SortOrder
+  distribucionTallas?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -464,6 +480,7 @@ export type EspigaCreateWithoutRolloInput = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -473,6 +490,7 @@ export type EspigaUncheckedCreateWithoutRolloInput = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -512,6 +530,7 @@ export type EspigaScalarWhereInput = {
   numero?: Prisma.IntFilter<"Espiga"> | number
   largoTrazo?: Prisma.FloatFilter<"Espiga"> | number
   numeroCapas?: Prisma.FloatFilter<"Espiga"> | number
+  distribucionTallas?: Prisma.JsonFilter<"Espiga">
   createdAt?: Prisma.DateTimeFilter<"Espiga"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Espiga"> | Date | string
 }
@@ -521,6 +540,7 @@ export type EspigaCreateManyRolloInput = {
   numero: number
   largoTrazo: number
   numeroCapas: number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -530,6 +550,7 @@ export type EspigaUpdateWithoutRolloInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -539,6 +560,7 @@ export type EspigaUncheckedUpdateWithoutRolloInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -548,6 +570,7 @@ export type EspigaUncheckedUpdateManyWithoutRolloInput = {
   numero?: Prisma.IntFieldUpdateOperationsInput | number
   largoTrazo?: Prisma.FloatFieldUpdateOperationsInput | number
   numeroCapas?: Prisma.FloatFieldUpdateOperationsInput | number
+  distribucionTallas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -560,6 +583,7 @@ export type EspigaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   numero?: boolean
   largoTrazo?: boolean
   numeroCapas?: boolean
+  distribucionTallas?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   rollo?: boolean | Prisma.RolloDefaultArgs<ExtArgs>
@@ -571,6 +595,7 @@ export type EspigaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   numero?: boolean
   largoTrazo?: boolean
   numeroCapas?: boolean
+  distribucionTallas?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   rollo?: boolean | Prisma.RolloDefaultArgs<ExtArgs>
@@ -582,6 +607,7 @@ export type EspigaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   numero?: boolean
   largoTrazo?: boolean
   numeroCapas?: boolean
+  distribucionTallas?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   rollo?: boolean | Prisma.RolloDefaultArgs<ExtArgs>
@@ -593,11 +619,12 @@ export type EspigaSelectScalar = {
   numero?: boolean
   largoTrazo?: boolean
   numeroCapas?: boolean
+  distribucionTallas?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EspigaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "rolloId" | "numero" | "largoTrazo" | "numeroCapas" | "createdAt" | "updatedAt", ExtArgs["result"]["espiga"]>
+export type EspigaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "rolloId" | "numero" | "largoTrazo" | "numeroCapas" | "distribucionTallas" | "createdAt" | "updatedAt", ExtArgs["result"]["espiga"]>
 export type EspigaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   rollo?: boolean | Prisma.RolloDefaultArgs<ExtArgs>
 }
@@ -619,6 +646,7 @@ export type $EspigaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     numero: number
     largoTrazo: number
     numeroCapas: number
+    distribucionTallas: runtime.JsonValue
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["espiga"]>
@@ -1050,6 +1078,7 @@ export interface EspigaFieldRefs {
   readonly numero: Prisma.FieldRef<"Espiga", 'Int'>
   readonly largoTrazo: Prisma.FieldRef<"Espiga", 'Float'>
   readonly numeroCapas: Prisma.FieldRef<"Espiga", 'Float'>
+  readonly distribucionTallas: Prisma.FieldRef<"Espiga", 'Json'>
   readonly createdAt: Prisma.FieldRef<"Espiga", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Espiga", 'DateTime'>
 }

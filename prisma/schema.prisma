@@ -70,14 +70,15 @@ model Rollo {
 }
 
 model Espiga {
-  id          String   @id @default(cuid())
-  rolloId     String
-  rollo       Rollo    @relation(fields: [rolloId], references: [id], onDelete: Cascade)
-  numero      Int
-  largoTrazo  Float
-  numeroCapas Float
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  rolloId            String
+  rollo              Rollo    @relation(fields: [rolloId], references: [id], onDelete: Cascade)
+  numero             Int
+  largoTrazo         Float
+  numeroCapas        Float
+  distribucionTallas Json     @default("{}")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   @@index([rolloId])
   @@map("espigas")

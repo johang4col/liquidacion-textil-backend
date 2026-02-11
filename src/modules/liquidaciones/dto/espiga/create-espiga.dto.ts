@@ -1,4 +1,4 @@
-import { IsNumber, Min } from 'class-validator';
+import { IsNumber, Min, IsOptional, IsObject } from 'class-validator';
 
 export class CreateEspigaDto {
   @IsNumber()
@@ -8,4 +8,8 @@ export class CreateEspigaDto {
   @IsNumber()
   @Min(0)
   numeroCapas: number;
+
+  @IsOptional()
+  @IsObject()
+  distribucionTallas?: Record<string, number>;
 }
