@@ -2,10 +2,7 @@ import { IsString, IsNumber, Min, IsOptional } from 'class-validator';
 
 export class CreateRolloDto {
   @IsString()
-  colorTela: string;
-
-  @IsString()
-  colorHex: string;
+  material: string;
 
   @IsNumber()
   @Min(0)

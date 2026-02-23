@@ -44,8 +44,7 @@ export type RolloMinAggregateOutputType = {
   id: string | null
   liquidacionId: string | null
   numero: number | null
-  colorTela: string | null
-  colorHex: string | null
+  material: string | null
   metrosIniciales: number | null
   retazos: number | null
   sesgos: number | null
@@ -57,8 +56,7 @@ export type RolloMaxAggregateOutputType = {
   id: string | null
   liquidacionId: string | null
   numero: number | null
-  colorTela: string | null
-  colorHex: string | null
+  material: string | null
   metrosIniciales: number | null
   retazos: number | null
   sesgos: number | null
@@ -70,8 +68,7 @@ export type RolloCountAggregateOutputType = {
   id: number
   liquidacionId: number
   numero: number
-  colorTela: number
-  colorHex: number
+  material: number
   metrosIniciales: number
   retazos: number
   sesgos: number
@@ -99,8 +96,7 @@ export type RolloMinAggregateInputType = {
   id?: true
   liquidacionId?: true
   numero?: true
-  colorTela?: true
-  colorHex?: true
+  material?: true
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
@@ -112,8 +108,7 @@ export type RolloMaxAggregateInputType = {
   id?: true
   liquidacionId?: true
   numero?: true
-  colorTela?: true
-  colorHex?: true
+  material?: true
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
@@ -125,8 +120,7 @@ export type RolloCountAggregateInputType = {
   id?: true
   liquidacionId?: true
   numero?: true
-  colorTela?: true
-  colorHex?: true
+  material?: true
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
@@ -225,8 +219,7 @@ export type RolloGroupByOutputType = {
   id: string
   liquidacionId: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos: number
   sesgos: number
@@ -261,8 +254,7 @@ export type RolloWhereInput = {
   id?: Prisma.StringFilter<"Rollo"> | string
   liquidacionId?: Prisma.StringFilter<"Rollo"> | string
   numero?: Prisma.IntFilter<"Rollo"> | number
-  colorTela?: Prisma.StringFilter<"Rollo"> | string
-  colorHex?: Prisma.StringFilter<"Rollo"> | string
+  material?: Prisma.StringFilter<"Rollo"> | string
   metrosIniciales?: Prisma.FloatFilter<"Rollo"> | number
   retazos?: Prisma.FloatFilter<"Rollo"> | number
   sesgos?: Prisma.FloatFilter<"Rollo"> | number
@@ -276,8 +268,7 @@ export type RolloOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   liquidacionId?: Prisma.SortOrder
   numero?: Prisma.SortOrder
-  colorTela?: Prisma.SortOrder
-  colorHex?: Prisma.SortOrder
+  material?: Prisma.SortOrder
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
@@ -294,8 +285,7 @@ export type RolloWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.RolloWhereInput | Prisma.RolloWhereInput[]
   liquidacionId?: Prisma.StringFilter<"Rollo"> | string
   numero?: Prisma.IntFilter<"Rollo"> | number
-  colorTela?: Prisma.StringFilter<"Rollo"> | string
-  colorHex?: Prisma.StringFilter<"Rollo"> | string
+  material?: Prisma.StringFilter<"Rollo"> | string
   metrosIniciales?: Prisma.FloatFilter<"Rollo"> | number
   retazos?: Prisma.FloatFilter<"Rollo"> | number
   sesgos?: Prisma.FloatFilter<"Rollo"> | number
@@ -309,8 +299,7 @@ export type RolloOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   liquidacionId?: Prisma.SortOrder
   numero?: Prisma.SortOrder
-  colorTela?: Prisma.SortOrder
-  colorHex?: Prisma.SortOrder
+  material?: Prisma.SortOrder
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
@@ -330,8 +319,7 @@ export type RolloScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Rollo"> | string
   liquidacionId?: Prisma.StringWithAggregatesFilter<"Rollo"> | string
   numero?: Prisma.IntWithAggregatesFilter<"Rollo"> | number
-  colorTela?: Prisma.StringWithAggregatesFilter<"Rollo"> | string
-  colorHex?: Prisma.StringWithAggregatesFilter<"Rollo"> | string
+  material?: Prisma.StringWithAggregatesFilter<"Rollo"> | string
   metrosIniciales?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
   retazos?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
   sesgos?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
@@ -342,8 +330,7 @@ export type RolloScalarWhereWithAggregatesInput = {
 export type RolloCreateInput = {
   id?: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -357,8 +344,7 @@ export type RolloUncheckedCreateInput = {
   id?: string
   liquidacionId: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -370,8 +356,7 @@ export type RolloUncheckedCreateInput = {
 export type RolloUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -385,8 +370,7 @@ export type RolloUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   liquidacionId?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -399,8 +383,7 @@ export type RolloCreateManyInput = {
   id?: string
   liquidacionId: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -411,8 +394,7 @@ export type RolloCreateManyInput = {
 export type RolloUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -424,8 +406,7 @@ export type RolloUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   liquidacionId?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -447,8 +428,7 @@ export type RolloCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   liquidacionId?: Prisma.SortOrder
   numero?: Prisma.SortOrder
-  colorTela?: Prisma.SortOrder
-  colorHex?: Prisma.SortOrder
+  material?: Prisma.SortOrder
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
@@ -467,8 +447,7 @@ export type RolloMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   liquidacionId?: Prisma.SortOrder
   numero?: Prisma.SortOrder
-  colorTela?: Prisma.SortOrder
-  colorHex?: Prisma.SortOrder
+  material?: Prisma.SortOrder
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
@@ -480,8 +459,7 @@ export type RolloMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   liquidacionId?: Prisma.SortOrder
   numero?: Prisma.SortOrder
-  colorTela?: Prisma.SortOrder
-  colorHex?: Prisma.SortOrder
+  material?: Prisma.SortOrder
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
@@ -576,8 +554,7 @@ export type RolloUpdateOneRequiredWithoutEspigasNestedInput = {
 export type RolloCreateWithoutLiquidacionInput = {
   id?: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -589,8 +566,7 @@ export type RolloCreateWithoutLiquidacionInput = {
 export type RolloUncheckedCreateWithoutLiquidacionInput = {
   id?: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -632,8 +608,7 @@ export type RolloScalarWhereInput = {
   id?: Prisma.StringFilter<"Rollo"> | string
   liquidacionId?: Prisma.StringFilter<"Rollo"> | string
   numero?: Prisma.IntFilter<"Rollo"> | number
-  colorTela?: Prisma.StringFilter<"Rollo"> | string
-  colorHex?: Prisma.StringFilter<"Rollo"> | string
+  material?: Prisma.StringFilter<"Rollo"> | string
   metrosIniciales?: Prisma.FloatFilter<"Rollo"> | number
   retazos?: Prisma.FloatFilter<"Rollo"> | number
   sesgos?: Prisma.FloatFilter<"Rollo"> | number
@@ -644,8 +619,7 @@ export type RolloScalarWhereInput = {
 export type RolloCreateWithoutEspigasInput = {
   id?: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -658,8 +632,7 @@ export type RolloUncheckedCreateWithoutEspigasInput = {
   id?: string
   liquidacionId: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -686,8 +659,7 @@ export type RolloUpdateToOneWithWhereWithoutEspigasInput = {
 export type RolloUpdateWithoutEspigasInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -700,8 +672,7 @@ export type RolloUncheckedUpdateWithoutEspigasInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   liquidacionId?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -712,8 +683,7 @@ export type RolloUncheckedUpdateWithoutEspigasInput = {
 export type RolloCreateManyLiquidacionInput = {
   id?: string
   numero: number
-  colorTela: string
-  colorHex: string
+  material: string
   metrosIniciales: number
   retazos?: number
   sesgos?: number
@@ -724,8 +694,7 @@ export type RolloCreateManyLiquidacionInput = {
 export type RolloUpdateWithoutLiquidacionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -737,8 +706,7 @@ export type RolloUpdateWithoutLiquidacionInput = {
 export type RolloUncheckedUpdateWithoutLiquidacionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -750,8 +718,7 @@ export type RolloUncheckedUpdateWithoutLiquidacionInput = {
 export type RolloUncheckedUpdateManyWithoutLiquidacionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   numero?: Prisma.IntFieldUpdateOperationsInput | number
-  colorTela?: Prisma.StringFieldUpdateOperationsInput | string
-  colorHex?: Prisma.StringFieldUpdateOperationsInput | string
+  material?: Prisma.StringFieldUpdateOperationsInput | string
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
@@ -794,8 +761,7 @@ export type RolloSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   liquidacionId?: boolean
   numero?: boolean
-  colorTela?: boolean
-  colorHex?: boolean
+  material?: boolean
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
@@ -810,8 +776,7 @@ export type RolloSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   liquidacionId?: boolean
   numero?: boolean
-  colorTela?: boolean
-  colorHex?: boolean
+  material?: boolean
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
@@ -824,8 +789,7 @@ export type RolloSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   liquidacionId?: boolean
   numero?: boolean
-  colorTela?: boolean
-  colorHex?: boolean
+  material?: boolean
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
@@ -838,8 +802,7 @@ export type RolloSelectScalar = {
   id?: boolean
   liquidacionId?: boolean
   numero?: boolean
-  colorTela?: boolean
-  colorHex?: boolean
+  material?: boolean
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
@@ -847,7 +810,7 @@ export type RolloSelectScalar = {
   updatedAt?: boolean
 }
 
-export type RolloOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "liquidacionId" | "numero" | "colorTela" | "colorHex" | "metrosIniciales" | "retazos" | "sesgos" | "createdAt" | "updatedAt", ExtArgs["result"]["rollo"]>
+export type RolloOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "liquidacionId" | "numero" | "material" | "metrosIniciales" | "retazos" | "sesgos" | "createdAt" | "updatedAt", ExtArgs["result"]["rollo"]>
 export type RolloInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   liquidacion?: boolean | Prisma.LiquidacionDefaultArgs<ExtArgs>
   espigas?: boolean | Prisma.Rollo$espigasArgs<ExtArgs>
@@ -870,8 +833,7 @@ export type $RolloPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: string
     liquidacionId: string
     numero: number
-    colorTela: string
-    colorHex: string
+    material: string
     metrosIniciales: number
     retazos: number
     sesgos: number
@@ -1305,8 +1267,7 @@ export interface RolloFieldRefs {
   readonly id: Prisma.FieldRef<"Rollo", 'String'>
   readonly liquidacionId: Prisma.FieldRef<"Rollo", 'String'>
   readonly numero: Prisma.FieldRef<"Rollo", 'Int'>
-  readonly colorTela: Prisma.FieldRef<"Rollo", 'String'>
-  readonly colorHex: Prisma.FieldRef<"Rollo", 'String'>
+  readonly material: Prisma.FieldRef<"Rollo", 'String'>
   readonly metrosIniciales: Prisma.FieldRef<"Rollo", 'Float'>
   readonly retazos: Prisma.FieldRef<"Rollo", 'Float'>
   readonly sesgos: Prisma.FieldRef<"Rollo", 'Float'>

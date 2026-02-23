@@ -3,11 +3,7 @@ import { IsString, IsNumber, Min, IsOptional } from 'class-validator';
 export class UpdateRolloDto {
   @IsOptional()
   @IsString()
-  colorTela?: string;
-
-  @IsOptional()
-  @IsString()
-  colorHex?: string;
+  material?: string;
 
   @IsOptional()
   @IsNumber()

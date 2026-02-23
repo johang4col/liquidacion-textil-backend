@@ -8,10 +8,10 @@ datasource db {
 }
 model User {
   id        String   @id
-  nombre    String   // Cambiar "name" por "nombre"
+  nombre    String
   email     String   @unique
   password  String
-  activo    Boolean  @default(true) // Cambiar "active" por "activo"
+  activo    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -56,8 +56,7 @@ model Rollo {
   liquidacionId   String
   liquidacion     Liquidacion @relation(fields: [liquidacionId], references: [id], onDelete: Cascade)
   numero          Int
-  colorTela       String
-  colorHex        String
+  material        String
   metrosIniciales Float
   retazos         Float       @default(0)
   sesgos          Float       @default(0)

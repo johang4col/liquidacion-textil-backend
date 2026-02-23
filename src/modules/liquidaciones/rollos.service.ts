@@ -169,8 +169,7 @@ export class RollosService {
           id: `rol_${Date.now()}_${Math.random().toString(36).substring(7)}`,
           liquidacionId,
           numero: nuevoNumero,
-          colorTela: rolloOriginal.colorTela,
-          colorHex: rolloOriginal.colorHex,
+          material: rolloOriginal.material,
           metrosIniciales: rolloOriginal.metrosIniciales,
           retazos: rolloOriginal.retazos,
           sesgos: rolloOriginal.sesgos,
@@ -186,6 +185,7 @@ export class RollosService {
             numero: espiga.numero,
             largoTrazo: espiga.largoTrazo,
             numeroCapas: espiga.numeroCapas,
+            distribucionTallas: espiga.distribucionTallas,
           })),
         });
       }
