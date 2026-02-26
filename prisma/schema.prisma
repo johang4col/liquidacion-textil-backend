@@ -87,6 +87,8 @@ model Configuracion {
   id                 String   @id @default(cuid())
   nombreEmpresa      String   @default("RED W & GOLD S.A.S")
   telefono           String   @default("320 694 81 38")
+  nit                String?
+  direccion          String?
   siguienteNumero    Int      @default(1)
   prefijoLiquidacion String   @default("")
   updatedAt          DateTime @updatedAt
