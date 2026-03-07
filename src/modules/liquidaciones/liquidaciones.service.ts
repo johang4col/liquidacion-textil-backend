@@ -25,10 +25,26 @@ export class LiquidacionesService {
       throw new NotFoundException('Cliente no encontrado');
     }
 
-    // Obtener siguiente número
+    // Obtener siguiente número y buscar uno disponible
     const config = await this.prisma.configuracion.findFirst();
-    const siguienteNumero = config?.siguienteNumero || 1;
-    const numero = String(siguienteNumero).padStart(6, '0');
+    let siguienteNumero = config?.siguienteNumero || 1;
+
+    // Verificar si el número ya existe (por liquidaciones restauradas)
+    // y buscar el siguiente disponible
+    let numero = String(siguienteNumero).padStart(6, '0');
+    let existe = await this.prisma.liquidacion.findUnique({
+      where: { numero },
+      select: { id: true },
+    });
+
+    while (existe) {
+      siguienteNumero++;
+      numero = String(siguienteNumero).padStart(6, '0');
+      existe = await this.prisma.liquidacion.findUnique({
+        where: { numero },
+        select: { id: true },
+      });
+    }
 
     // Crear liquidación y actualizar contador en transacción
     const liquidacion = await this.prisma.$transaction(async (tx) => {
@@ -55,7 +71,7 @@ export class LiquidacionesService {
         },
       });
 
-      // Actualizar contador
+      // Actualizar contador al siguiente después del que se usó
       if (config) {
         await tx.configuracion.update({
           where: { id: config.id },
