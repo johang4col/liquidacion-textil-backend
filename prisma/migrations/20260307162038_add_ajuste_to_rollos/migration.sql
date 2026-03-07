@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "rollos" ADD COLUMN     "ajuste" DOUBLE PRECISION NOT NULL DEFAULT 0;
