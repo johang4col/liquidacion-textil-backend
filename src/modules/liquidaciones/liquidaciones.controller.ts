@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Patch,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { LiquidacionesService } from './liquidaciones.service';
@@ -40,8 +41,8 @@ export class LiquidacionesController {
   }
 
   @Get('liquidaciones')
-  findAllLiquidaciones() {
-    return this.liquidacionesService.findAll();
+  findAllLiquidaciones(@Query('eliminadas') eliminadas?: string) {
+    return this.liquidacionesService.findAll(eliminadas === 'true');
   }
 
   @Get('liquidaciones/:id')
@@ -68,6 +69,11 @@ export class LiquidacionesController {
   @Delete('liquidaciones/:id')
   removeLiquidacion(@Param('id') id: string) {
     return this.liquidacionesService.remove(id);
+  }
+
+  @Patch('liquidaciones/:id/restaurar')
+  restaurarLiquidacion(@Param('id') id: string) {
+    return this.liquidacionesService.restaurar(id);
   }
 
   // ==================== ROLLOS ====================

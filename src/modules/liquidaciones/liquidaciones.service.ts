@@ -76,8 +76,11 @@ export class LiquidacionesService {
     return liquidacion;
   }
 
-  async findAll() {
+  async findAll(incluirEliminadas = false) {
     const liquidaciones = await this.prisma.liquidacion.findMany({
+      where: {
+        eliminada: incluirEliminadas ? true : false,
+      },
       select: {
         id: true,
         numero: true,
@@ -85,6 +88,7 @@ export class LiquidacionesService {
         estado: true,
         ordenProduccion: true,
         referencia: true,
+        eliminada: true,
         createdAt: true,
         cliente: {
           select: {
@@ -137,6 +141,7 @@ export class LiquidacionesService {
         estado: liq.estado,
         ordenProduccion: liq.ordenProduccion,
         referencia: liq.referencia,
+        eliminada: liq.eliminada,
         createdAt: liq.createdAt,
         cliente: liq.cliente,
         metrosIniciales: Math.round(metrosIniciales * 100) / 100,
@@ -255,7 +260,6 @@ export class LiquidacionesService {
   }
 
   async remove(id: string) {
-    // Verificar estado
     const liquidacion = await this.prisma.liquidacion.findUnique({
       where: { id },
       select: { estado: true },
@@ -271,12 +275,38 @@ export class LiquidacionesService {
       );
     }
 
-    await this.prisma.liquidacion.delete({
+    // Soft delete: marcar como eliminada en vez de borrar
+    await this.prisma.liquidacion.update({
       where: { id },
+      data: { eliminada: true },
     });
 
     return {
       message: 'Liquidación eliminada exitosamente',
+    };
+  }
+
+  async restaurar(id: string) {
+    const liquidacion = await this.prisma.liquidacion.findUnique({
+      where: { id },
+      select: { eliminada: true },
+    });
+
+    if (!liquidacion) {
+      throw new NotFoundException('Liquidación no encontrada');
+    }
+
+    if (!liquidacion.eliminada) {
+      throw new ConflictException('La liquidación no está eliminada');
+    }
+
+    await this.prisma.liquidacion.update({
+      where: { id },
+      data: { eliminada: false },
+    });
+
+    return {
+      message: 'Liquidación restaurada exitosamente',
     };
   }
 }

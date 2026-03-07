@@ -42,6 +42,7 @@ model Liquidacion {
   referencia      String?
   observaciones   String?
   estado          EstadoLiquidacion   @default(borrador)
+  eliminada       Boolean             @default(false)
   rollos          Rollo[]
   createdAt       DateTime            @default(now())
   updatedAt       DateTime            @updatedAt
