@@ -17,4 +17,8 @@ export class CreateRolloDto {
   @IsNumber()
   @Min(0)
   sesgos?: number;
+
+  @IsOptional()
+  @IsNumber()
+  ajuste?: number;
 }
