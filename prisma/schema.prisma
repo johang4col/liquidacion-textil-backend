@@ -40,6 +40,7 @@ model Liquidacion {
   cliente         Cliente             @relation(fields: [clienteId], references: [id])
   ordenProduccion String?
   referencia      String?
+  materialPrincipal String?
   observaciones   String?
   estado          EstadoLiquidacion   @default(borrador)
   eliminada       Boolean             @default(false)

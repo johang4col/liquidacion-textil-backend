@@ -20,6 +20,10 @@ export class UpdateLiquidacionDto {
 
   @IsOptional()
   @IsString()
+  materialPrincipal?: string;
+
+  @IsOptional()
+  @IsString()
   observaciones?: string;
 
   @IsOptional()

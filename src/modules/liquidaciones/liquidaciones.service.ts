@@ -56,6 +56,7 @@ export class LiquidacionesService {
           clienteId: createLiquidacionDto.clienteId,
           ordenProduccion: createLiquidacionDto.ordenProduccion,
           referencia: createLiquidacionDto.referencia,
+          materialPrincipal: createLiquidacionDto.materialPrincipal,
           observaciones: createLiquidacionDto.observaciones,
           estado: createLiquidacionDto.estado || 'borrador',
         },
@@ -202,6 +203,7 @@ export class LiquidacionesService {
         clienteId?: string;
         ordenProduccion?: string | null;
         referencia?: string | null;
+        materialPrincipal?: string | null;
         observaciones?: string | null;
         estado?: EstadoLiquidacion;
       } = {};
@@ -220,6 +222,10 @@ export class LiquidacionesService {
 
       if (updateLiquidacionDto.referencia !== undefined) {
         dataToUpdate.referencia = updateLiquidacionDto.referencia;
+      }
+
+      if (updateLiquidacionDto.materialPrincipal !== undefined) {
+        dataToUpdate.materialPrincipal = updateLiquidacionDto.materialPrincipal;
       }
 
       if (updateLiquidacionDto.observaciones !== undefined) {

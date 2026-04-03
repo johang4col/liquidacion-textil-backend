@@ -18,6 +18,10 @@ export class CreateLiquidacionDto {
 
   @IsOptional()
   @IsString()
+  materialPrincipal?: string;
+
+  @IsOptional()
+  @IsString()
   observaciones?: string;
 
   @IsOptional()
