@@ -31,8 +31,10 @@ export type LiquidacionMinAggregateOutputType = {
   clienteId: string | null
   ordenProduccion: string | null
   referencia: string | null
+  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion | null
+  eliminada: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -44,8 +46,10 @@ export type LiquidacionMaxAggregateOutputType = {
   clienteId: string | null
   ordenProduccion: string | null
   referencia: string | null
+  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion | null
+  eliminada: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -57,8 +61,10 @@ export type LiquidacionCountAggregateOutputType = {
   clienteId: number
   ordenProduccion: number
   referencia: number
+  materialPrincipal: number
   observaciones: number
   estado: number
+  eliminada: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -72,8 +78,10 @@ export type LiquidacionMinAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
+  materialPrincipal?: true
   observaciones?: true
   estado?: true
+  eliminada?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -85,8 +93,10 @@ export type LiquidacionMaxAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
+  materialPrincipal?: true
   observaciones?: true
   estado?: true
+  eliminada?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -98,8 +108,10 @@ export type LiquidacionCountAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
+  materialPrincipal?: true
   observaciones?: true
   estado?: true
+  eliminada?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -184,8 +196,10 @@ export type LiquidacionGroupByOutputType = {
   clienteId: string
   ordenProduccion: string | null
   referencia: string | null
+  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion
+  eliminada: boolean
   createdAt: Date
   updatedAt: Date
   _count: LiquidacionCountAggregateOutputType | null
@@ -218,8 +232,10 @@ export type LiquidacionWhereInput = {
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
@@ -233,8 +249,10 @@ export type LiquidacionOrderByWithRelationInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrderInput | Prisma.SortOrder
   referencia?: Prisma.SortOrderInput | Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrderInput | Prisma.SortOrder
   observaciones?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
+  eliminada?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   cliente?: Prisma.ClienteOrderByWithRelationInput
@@ -251,8 +269,10 @@ export type LiquidacionWhereUniqueInput = Prisma.AtLeast<{
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
@@ -266,8 +286,10 @@ export type LiquidacionOrderByWithAggregationInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrderInput | Prisma.SortOrder
   referencia?: Prisma.SortOrderInput | Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrderInput | Prisma.SortOrder
   observaciones?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
+  eliminada?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.LiquidacionCountOrderByAggregateInput
@@ -285,8 +307,10 @@ export type LiquidacionScalarWhereWithAggregatesInput = {
   clienteId?: Prisma.StringWithAggregatesFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionWithAggregatesFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolWithAggregatesFilter<"Liquidacion"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Liquidacion"> | Date | string
 }
@@ -297,8 +321,10 @@ export type LiquidacionCreateInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
@@ -312,8 +338,10 @@ export type LiquidacionUncheckedCreateInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
@@ -325,8 +353,10 @@ export type LiquidacionUpdateInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
@@ -340,8 +370,10 @@ export type LiquidacionUncheckedUpdateInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
@@ -354,8 +386,10 @@ export type LiquidacionCreateManyInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -366,8 +400,10 @@ export type LiquidacionUpdateManyMutationInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -379,8 +415,10 @@ export type LiquidacionUncheckedUpdateManyInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -402,8 +440,10 @@ export type LiquidacionCountOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  eliminada?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -415,8 +455,10 @@ export type LiquidacionMaxOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  eliminada?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -428,8 +470,10 @@ export type LiquidacionMinOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  eliminada?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -505,8 +549,10 @@ export type LiquidacionCreateWithoutClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloCreateNestedManyWithoutLiquidacionInput
@@ -518,8 +564,10 @@ export type LiquidacionUncheckedCreateWithoutClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
@@ -561,8 +609,10 @@ export type LiquidacionScalarWhereInput = {
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
 }
@@ -573,8 +623,10 @@ export type LiquidacionCreateWithoutRollosInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
@@ -587,8 +639,10 @@ export type LiquidacionUncheckedCreateWithoutRollosInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -615,8 +669,10 @@ export type LiquidacionUpdateWithoutRollosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
@@ -629,8 +685,10 @@ export type LiquidacionUncheckedUpdateWithoutRollosInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -641,8 +699,10 @@ export type LiquidacionCreateManyClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -653,8 +713,10 @@ export type LiquidacionUpdateWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUpdateManyWithoutLiquidacionNestedInput
@@ -666,8 +728,10 @@ export type LiquidacionUncheckedUpdateWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
@@ -679,8 +743,10 @@ export type LiquidacionUncheckedUpdateManyWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -723,8 +789,10 @@ export type LiquidacionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
+  eliminada?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
@@ -739,8 +807,10 @@ export type LiquidacionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
+  eliminada?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
@@ -753,8 +823,10 @@ export type LiquidacionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
+  eliminada?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
@@ -767,13 +839,15 @@ export type LiquidacionSelectScalar = {
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
+  eliminada?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type LiquidacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "fecha" | "clienteId" | "ordenProduccion" | "referencia" | "observaciones" | "estado" | "createdAt" | "updatedAt", ExtArgs["result"]["liquidacion"]>
+export type LiquidacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "fecha" | "clienteId" | "ordenProduccion" | "referencia" | "materialPrincipal" | "observaciones" | "estado" | "eliminada" | "createdAt" | "updatedAt", ExtArgs["result"]["liquidacion"]>
 export type LiquidacionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
   rollos?: boolean | Prisma.Liquidacion$rollosArgs<ExtArgs>
@@ -799,8 +873,10 @@ export type $LiquidacionPayload<ExtArgs extends runtime.Types.Extensions.Interna
     clienteId: string
     ordenProduccion: string | null
     referencia: string | null
+    materialPrincipal: string | null
     observaciones: string | null
     estado: $Enums.EstadoLiquidacion
+    eliminada: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["liquidacion"]>
@@ -1234,8 +1310,10 @@ export interface LiquidacionFieldRefs {
   readonly clienteId: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly ordenProduccion: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly referencia: Prisma.FieldRef<"Liquidacion", 'String'>
+  readonly materialPrincipal: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly observaciones: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly estado: Prisma.FieldRef<"Liquidacion", 'EstadoLiquidacion'>
+  readonly eliminada: Prisma.FieldRef<"Liquidacion", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Liquidacion", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Liquidacion", 'DateTime'>
 }

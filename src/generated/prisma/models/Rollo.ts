@@ -31,6 +31,7 @@ export type RolloAvgAggregateOutputType = {
   metrosIniciales: number | null
   retazos: number | null
   sesgos: number | null
+  ajuste: number | null
 }
 
 export type RolloSumAggregateOutputType = {
@@ -38,6 +39,7 @@ export type RolloSumAggregateOutputType = {
   metrosIniciales: number | null
   retazos: number | null
   sesgos: number | null
+  ajuste: number | null
 }
 
 export type RolloMinAggregateOutputType = {
@@ -48,6 +50,7 @@ export type RolloMinAggregateOutputType = {
   metrosIniciales: number | null
   retazos: number | null
   sesgos: number | null
+  ajuste: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -60,6 +63,7 @@ export type RolloMaxAggregateOutputType = {
   metrosIniciales: number | null
   retazos: number | null
   sesgos: number | null
+  ajuste: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -72,6 +76,7 @@ export type RolloCountAggregateOutputType = {
   metrosIniciales: number
   retazos: number
   sesgos: number
+  ajuste: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -83,6 +88,7 @@ export type RolloAvgAggregateInputType = {
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
+  ajuste?: true
 }
 
 export type RolloSumAggregateInputType = {
@@ -90,6 +96,7 @@ export type RolloSumAggregateInputType = {
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
+  ajuste?: true
 }
 
 export type RolloMinAggregateInputType = {
@@ -100,6 +107,7 @@ export type RolloMinAggregateInputType = {
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
+  ajuste?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -112,6 +120,7 @@ export type RolloMaxAggregateInputType = {
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
+  ajuste?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -124,6 +133,7 @@ export type RolloCountAggregateInputType = {
   metrosIniciales?: true
   retazos?: true
   sesgos?: true
+  ajuste?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -223,6 +233,7 @@ export type RolloGroupByOutputType = {
   metrosIniciales: number
   retazos: number
   sesgos: number
+  ajuste: number
   createdAt: Date
   updatedAt: Date
   _count: RolloCountAggregateOutputType | null
@@ -258,6 +269,7 @@ export type RolloWhereInput = {
   metrosIniciales?: Prisma.FloatFilter<"Rollo"> | number
   retazos?: Prisma.FloatFilter<"Rollo"> | number
   sesgos?: Prisma.FloatFilter<"Rollo"> | number
+  ajuste?: Prisma.FloatFilter<"Rollo"> | number
   createdAt?: Prisma.DateTimeFilter<"Rollo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Rollo"> | Date | string
   liquidacion?: Prisma.XOR<Prisma.LiquidacionScalarRelationFilter, Prisma.LiquidacionWhereInput>
@@ -272,6 +284,7 @@ export type RolloOrderByWithRelationInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   liquidacion?: Prisma.LiquidacionOrderByWithRelationInput
@@ -289,6 +302,7 @@ export type RolloWhereUniqueInput = Prisma.AtLeast<{
   metrosIniciales?: Prisma.FloatFilter<"Rollo"> | number
   retazos?: Prisma.FloatFilter<"Rollo"> | number
   sesgos?: Prisma.FloatFilter<"Rollo"> | number
+  ajuste?: Prisma.FloatFilter<"Rollo"> | number
   createdAt?: Prisma.DateTimeFilter<"Rollo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Rollo"> | Date | string
   liquidacion?: Prisma.XOR<Prisma.LiquidacionScalarRelationFilter, Prisma.LiquidacionWhereInput>
@@ -303,6 +317,7 @@ export type RolloOrderByWithAggregationInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.RolloCountOrderByAggregateInput
@@ -323,6 +338,7 @@ export type RolloScalarWhereWithAggregatesInput = {
   metrosIniciales?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
   retazos?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
   sesgos?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
+  ajuste?: Prisma.FloatWithAggregatesFilter<"Rollo"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Rollo"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Rollo"> | Date | string
 }
@@ -334,6 +350,7 @@ export type RolloCreateInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   liquidacion: Prisma.LiquidacionCreateNestedOneWithoutRollosInput
@@ -348,6 +365,7 @@ export type RolloUncheckedCreateInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   espigas?: Prisma.EspigaUncheckedCreateNestedManyWithoutRolloInput
@@ -360,6 +378,7 @@ export type RolloUpdateInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   liquidacion?: Prisma.LiquidacionUpdateOneRequiredWithoutRollosNestedInput
@@ -374,6 +393,7 @@ export type RolloUncheckedUpdateInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   espigas?: Prisma.EspigaUncheckedUpdateManyWithoutRolloNestedInput
@@ -387,6 +407,7 @@ export type RolloCreateManyInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -398,6 +419,7 @@ export type RolloUpdateManyMutationInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -410,6 +432,7 @@ export type RolloUncheckedUpdateManyInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -432,6 +455,7 @@ export type RolloCountOrderByAggregateInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -441,6 +465,7 @@ export type RolloAvgOrderByAggregateInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
 }
 
 export type RolloMaxOrderByAggregateInput = {
@@ -451,6 +476,7 @@ export type RolloMaxOrderByAggregateInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -463,6 +489,7 @@ export type RolloMinOrderByAggregateInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -472,6 +499,7 @@ export type RolloSumOrderByAggregateInput = {
   metrosIniciales?: Prisma.SortOrder
   retazos?: Prisma.SortOrder
   sesgos?: Prisma.SortOrder
+  ajuste?: Prisma.SortOrder
 }
 
 export type RolloScalarRelationFilter = {
@@ -558,6 +586,7 @@ export type RolloCreateWithoutLiquidacionInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   espigas?: Prisma.EspigaCreateNestedManyWithoutRolloInput
@@ -570,6 +599,7 @@ export type RolloUncheckedCreateWithoutLiquidacionInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   espigas?: Prisma.EspigaUncheckedCreateNestedManyWithoutRolloInput
@@ -612,6 +642,7 @@ export type RolloScalarWhereInput = {
   metrosIniciales?: Prisma.FloatFilter<"Rollo"> | number
   retazos?: Prisma.FloatFilter<"Rollo"> | number
   sesgos?: Prisma.FloatFilter<"Rollo"> | number
+  ajuste?: Prisma.FloatFilter<"Rollo"> | number
   createdAt?: Prisma.DateTimeFilter<"Rollo"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Rollo"> | Date | string
 }
@@ -623,6 +654,7 @@ export type RolloCreateWithoutEspigasInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   liquidacion: Prisma.LiquidacionCreateNestedOneWithoutRollosInput
@@ -636,6 +668,7 @@ export type RolloUncheckedCreateWithoutEspigasInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -663,6 +696,7 @@ export type RolloUpdateWithoutEspigasInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   liquidacion?: Prisma.LiquidacionUpdateOneRequiredWithoutRollosNestedInput
@@ -676,6 +710,7 @@ export type RolloUncheckedUpdateWithoutEspigasInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -687,6 +722,7 @@ export type RolloCreateManyLiquidacionInput = {
   metrosIniciales: number
   retazos?: number
   sesgos?: number
+  ajuste?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -698,6 +734,7 @@ export type RolloUpdateWithoutLiquidacionInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   espigas?: Prisma.EspigaUpdateManyWithoutRolloNestedInput
@@ -710,6 +747,7 @@ export type RolloUncheckedUpdateWithoutLiquidacionInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   espigas?: Prisma.EspigaUncheckedUpdateManyWithoutRolloNestedInput
@@ -722,6 +760,7 @@ export type RolloUncheckedUpdateManyWithoutLiquidacionInput = {
   metrosIniciales?: Prisma.FloatFieldUpdateOperationsInput | number
   retazos?: Prisma.FloatFieldUpdateOperationsInput | number
   sesgos?: Prisma.FloatFieldUpdateOperationsInput | number
+  ajuste?: Prisma.FloatFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -765,6 +804,7 @@ export type RolloSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
+  ajuste?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   liquidacion?: boolean | Prisma.LiquidacionDefaultArgs<ExtArgs>
@@ -780,6 +820,7 @@ export type RolloSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
+  ajuste?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   liquidacion?: boolean | Prisma.LiquidacionDefaultArgs<ExtArgs>
@@ -793,6 +834,7 @@ export type RolloSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
+  ajuste?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   liquidacion?: boolean | Prisma.LiquidacionDefaultArgs<ExtArgs>
@@ -806,11 +848,12 @@ export type RolloSelectScalar = {
   metrosIniciales?: boolean
   retazos?: boolean
   sesgos?: boolean
+  ajuste?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type RolloOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "liquidacionId" | "numero" | "material" | "metrosIniciales" | "retazos" | "sesgos" | "createdAt" | "updatedAt", ExtArgs["result"]["rollo"]>
+export type RolloOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "liquidacionId" | "numero" | "material" | "metrosIniciales" | "retazos" | "sesgos" | "ajuste" | "createdAt" | "updatedAt", ExtArgs["result"]["rollo"]>
 export type RolloInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   liquidacion?: boolean | Prisma.LiquidacionDefaultArgs<ExtArgs>
   espigas?: boolean | Prisma.Rollo$espigasArgs<ExtArgs>
@@ -837,6 +880,7 @@ export type $RolloPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     metrosIniciales: number
     retazos: number
     sesgos: number
+    ajuste: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["rollo"]>
@@ -1271,6 +1315,7 @@ export interface RolloFieldRefs {
   readonly metrosIniciales: Prisma.FieldRef<"Rollo", 'Float'>
   readonly retazos: Prisma.FieldRef<"Rollo", 'Float'>
   readonly sesgos: Prisma.FieldRef<"Rollo", 'Float'>
+  readonly ajuste: Prisma.FieldRef<"Rollo", 'Float'>
   readonly createdAt: Prisma.FieldRef<"Rollo", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Rollo", 'DateTime'>
 }

@@ -109,8 +109,10 @@ export const LiquidacionScalarFieldEnum = {
   clienteId: 'clienteId',
   ordenProduccion: 'ordenProduccion',
   referencia: 'referencia',
+  materialPrincipal: 'materialPrincipal',
   observaciones: 'observaciones',
   estado: 'estado',
+  eliminada: 'eliminada',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -126,6 +128,7 @@ export const RolloScalarFieldEnum = {
   metrosIniciales: 'metrosIniciales',
   retazos: 'retazos',
   sesgos: 'sesgos',
+  ajuste: 'ajuste',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -151,6 +154,8 @@ export const ConfiguracionScalarFieldEnum = {
   id: 'id',
   nombreEmpresa: 'nombreEmpresa',
   telefono: 'telefono',
+  nit: 'nit',
+  direccion: 'direccion',
   siguienteNumero: 'siguienteNumero',
   prefijoLiquidacion: 'prefijoLiquidacion',
   updatedAt: 'updatedAt'

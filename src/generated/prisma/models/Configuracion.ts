@@ -38,6 +38,8 @@ export type ConfiguracionMinAggregateOutputType = {
   id: string | null
   nombreEmpresa: string | null
   telefono: string | null
+  nit: string | null
+  direccion: string | null
   siguienteNumero: number | null
   prefijoLiquidacion: string | null
   updatedAt: Date | null
@@ -47,6 +49,8 @@ export type ConfiguracionMaxAggregateOutputType = {
   id: string | null
   nombreEmpresa: string | null
   telefono: string | null
+  nit: string | null
+  direccion: string | null
   siguienteNumero: number | null
   prefijoLiquidacion: string | null
   updatedAt: Date | null
@@ -56,6 +60,8 @@ export type ConfiguracionCountAggregateOutputType = {
   id: number
   nombreEmpresa: number
   telefono: number
+  nit: number
+  direccion: number
   siguienteNumero: number
   prefijoLiquidacion: number
   updatedAt: number
@@ -75,6 +81,8 @@ export type ConfiguracionMinAggregateInputType = {
   id?: true
   nombreEmpresa?: true
   telefono?: true
+  nit?: true
+  direccion?: true
   siguienteNumero?: true
   prefijoLiquidacion?: true
   updatedAt?: true
@@ -84,6 +92,8 @@ export type ConfiguracionMaxAggregateInputType = {
   id?: true
   nombreEmpresa?: true
   telefono?: true
+  nit?: true
+  direccion?: true
   siguienteNumero?: true
   prefijoLiquidacion?: true
   updatedAt?: true
@@ -93,6 +103,8 @@ export type ConfiguracionCountAggregateInputType = {
   id?: true
   nombreEmpresa?: true
   telefono?: true
+  nit?: true
+  direccion?: true
   siguienteNumero?: true
   prefijoLiquidacion?: true
   updatedAt?: true
@@ -189,6 +201,8 @@ export type ConfiguracionGroupByOutputType = {
   id: string
   nombreEmpresa: string
   telefono: string
+  nit: string | null
+  direccion: string | null
   siguienteNumero: number
   prefijoLiquidacion: string
   updatedAt: Date
@@ -221,6 +235,8 @@ export type ConfiguracionWhereInput = {
   id?: Prisma.StringFilter<"Configuracion"> | string
   nombreEmpresa?: Prisma.StringFilter<"Configuracion"> | string
   telefono?: Prisma.StringFilter<"Configuracion"> | string
+  nit?: Prisma.StringNullableFilter<"Configuracion"> | string | null
+  direccion?: Prisma.StringNullableFilter<"Configuracion"> | string | null
   siguienteNumero?: Prisma.IntFilter<"Configuracion"> | number
   prefijoLiquidacion?: Prisma.StringFilter<"Configuracion"> | string
   updatedAt?: Prisma.DateTimeFilter<"Configuracion"> | Date | string
@@ -230,6 +246,8 @@ export type ConfiguracionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nombreEmpresa?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
+  nit?: Prisma.SortOrderInput | Prisma.SortOrder
+  direccion?: Prisma.SortOrderInput | Prisma.SortOrder
   siguienteNumero?: Prisma.SortOrder
   prefijoLiquidacion?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -242,6 +260,8 @@ export type ConfiguracionWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ConfiguracionWhereInput | Prisma.ConfiguracionWhereInput[]
   nombreEmpresa?: Prisma.StringFilter<"Configuracion"> | string
   telefono?: Prisma.StringFilter<"Configuracion"> | string
+  nit?: Prisma.StringNullableFilter<"Configuracion"> | string | null
+  direccion?: Prisma.StringNullableFilter<"Configuracion"> | string | null
   siguienteNumero?: Prisma.IntFilter<"Configuracion"> | number
   prefijoLiquidacion?: Prisma.StringFilter<"Configuracion"> | string
   updatedAt?: Prisma.DateTimeFilter<"Configuracion"> | Date | string
@@ -251,6 +271,8 @@ export type ConfiguracionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nombreEmpresa?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
+  nit?: Prisma.SortOrderInput | Prisma.SortOrder
+  direccion?: Prisma.SortOrderInput | Prisma.SortOrder
   siguienteNumero?: Prisma.SortOrder
   prefijoLiquidacion?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -268,6 +290,8 @@ export type ConfiguracionScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Configuracion"> | string
   nombreEmpresa?: Prisma.StringWithAggregatesFilter<"Configuracion"> | string
   telefono?: Prisma.StringWithAggregatesFilter<"Configuracion"> | string
+  nit?: Prisma.StringNullableWithAggregatesFilter<"Configuracion"> | string | null
+  direccion?: Prisma.StringNullableWithAggregatesFilter<"Configuracion"> | string | null
   siguienteNumero?: Prisma.IntWithAggregatesFilter<"Configuracion"> | number
   prefijoLiquidacion?: Prisma.StringWithAggregatesFilter<"Configuracion"> | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Configuracion"> | Date | string
@@ -277,6 +301,8 @@ export type ConfiguracionCreateInput = {
   id?: string
   nombreEmpresa?: string
   telefono?: string
+  nit?: string | null
+  direccion?: string | null
   siguienteNumero?: number
   prefijoLiquidacion?: string
   updatedAt?: Date | string
@@ -286,6 +312,8 @@ export type ConfiguracionUncheckedCreateInput = {
   id?: string
   nombreEmpresa?: string
   telefono?: string
+  nit?: string | null
+  direccion?: string | null
   siguienteNumero?: number
   prefijoLiquidacion?: string
   updatedAt?: Date | string
@@ -295,6 +323,8 @@ export type ConfiguracionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombreEmpresa?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.StringFieldUpdateOperationsInput | string
+  nit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   siguienteNumero?: Prisma.IntFieldUpdateOperationsInput | number
   prefijoLiquidacion?: Prisma.StringFieldUpdateOperationsInput | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -304,6 +334,8 @@ export type ConfiguracionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombreEmpresa?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.StringFieldUpdateOperationsInput | string
+  nit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   siguienteNumero?: Prisma.IntFieldUpdateOperationsInput | number
   prefijoLiquidacion?: Prisma.StringFieldUpdateOperationsInput | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -313,6 +345,8 @@ export type ConfiguracionCreateManyInput = {
   id?: string
   nombreEmpresa?: string
   telefono?: string
+  nit?: string | null
+  direccion?: string | null
   siguienteNumero?: number
   prefijoLiquidacion?: string
   updatedAt?: Date | string
@@ -322,6 +356,8 @@ export type ConfiguracionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombreEmpresa?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.StringFieldUpdateOperationsInput | string
+  nit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   siguienteNumero?: Prisma.IntFieldUpdateOperationsInput | number
   prefijoLiquidacion?: Prisma.StringFieldUpdateOperationsInput | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -331,6 +367,8 @@ export type ConfiguracionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   nombreEmpresa?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.StringFieldUpdateOperationsInput | string
+  nit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   siguienteNumero?: Prisma.IntFieldUpdateOperationsInput | number
   prefijoLiquidacion?: Prisma.StringFieldUpdateOperationsInput | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -340,6 +378,8 @@ export type ConfiguracionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombreEmpresa?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
+  nit?: Prisma.SortOrder
+  direccion?: Prisma.SortOrder
   siguienteNumero?: Prisma.SortOrder
   prefijoLiquidacion?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -353,6 +393,8 @@ export type ConfiguracionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombreEmpresa?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
+  nit?: Prisma.SortOrder
+  direccion?: Prisma.SortOrder
   siguienteNumero?: Prisma.SortOrder
   prefijoLiquidacion?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -362,6 +404,8 @@ export type ConfiguracionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombreEmpresa?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
+  nit?: Prisma.SortOrder
+  direccion?: Prisma.SortOrder
   siguienteNumero?: Prisma.SortOrder
   prefijoLiquidacion?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -377,6 +421,8 @@ export type ConfiguracionSelect<ExtArgs extends runtime.Types.Extensions.Interna
   id?: boolean
   nombreEmpresa?: boolean
   telefono?: boolean
+  nit?: boolean
+  direccion?: boolean
   siguienteNumero?: boolean
   prefijoLiquidacion?: boolean
   updatedAt?: boolean
@@ -386,6 +432,8 @@ export type ConfiguracionSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   id?: boolean
   nombreEmpresa?: boolean
   telefono?: boolean
+  nit?: boolean
+  direccion?: boolean
   siguienteNumero?: boolean
   prefijoLiquidacion?: boolean
   updatedAt?: boolean
@@ -395,6 +443,8 @@ export type ConfiguracionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   id?: boolean
   nombreEmpresa?: boolean
   telefono?: boolean
+  nit?: boolean
+  direccion?: boolean
   siguienteNumero?: boolean
   prefijoLiquidacion?: boolean
   updatedAt?: boolean
@@ -404,12 +454,14 @@ export type ConfiguracionSelectScalar = {
   id?: boolean
   nombreEmpresa?: boolean
   telefono?: boolean
+  nit?: boolean
+  direccion?: boolean
   siguienteNumero?: boolean
   prefijoLiquidacion?: boolean
   updatedAt?: boolean
 }
 
-export type ConfiguracionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombreEmpresa" | "telefono" | "siguienteNumero" | "prefijoLiquidacion" | "updatedAt", ExtArgs["result"]["configuracion"]>
+export type ConfiguracionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombreEmpresa" | "telefono" | "nit" | "direccion" | "siguienteNumero" | "prefijoLiquidacion" | "updatedAt", ExtArgs["result"]["configuracion"]>
 
 export type $ConfiguracionPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Configuracion"
@@ -418,6 +470,8 @@ export type $ConfiguracionPayload<ExtArgs extends runtime.Types.Extensions.Inter
     id: string
     nombreEmpresa: string
     telefono: string
+    nit: string | null
+    direccion: string | null
     siguienteNumero: number
     prefijoLiquidacion: string
     updatedAt: Date
@@ -847,6 +901,8 @@ export interface ConfiguracionFieldRefs {
   readonly id: Prisma.FieldRef<"Configuracion", 'String'>
   readonly nombreEmpresa: Prisma.FieldRef<"Configuracion", 'String'>
   readonly telefono: Prisma.FieldRef<"Configuracion", 'String'>
+  readonly nit: Prisma.FieldRef<"Configuracion", 'String'>
+  readonly direccion: Prisma.FieldRef<"Configuracion", 'String'>
   readonly siguienteNumero: Prisma.FieldRef<"Configuracion", 'Int'>
   readonly prefijoLiquidacion: Prisma.FieldRef<"Configuracion", 'String'>
   readonly updatedAt: Prisma.FieldRef<"Configuracion", 'DateTime'>
