@@ -10,3 +10,6 @@ export * from './rollo/update-rollo.dto';
 // Espiga DTOs
 export * from './espiga/create-espiga.dto';
 export * from './espiga/update-espiga.dto';
+
+// Foto DTOs
+export * from './foto/upload-foto.dto';

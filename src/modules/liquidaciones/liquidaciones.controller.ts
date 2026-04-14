@@ -9,10 +9,14 @@ import {
   Patch,
   Query,
   UseGuards,
+  UseInterceptors,
+  UploadedFile,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { LiquidacionesService } from './liquidaciones.service';
 import { RollosService } from './rollos.service';
 import { EspigasService } from './espigas.service';
+import { FotosService } from './fotos.service';
 import {
   CreateLiquidacionDto,
   UpdateLiquidacionDto,
@@ -21,6 +25,7 @@ import {
   UpdateRolloDto,
   CreateEspigaDto,
   UpdateEspigaDto,
+  UploadFotoDto,
 } from './dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
@@ -31,6 +36,7 @@ export class LiquidacionesController {
     private readonly liquidacionesService: LiquidacionesService,
     private readonly rollosService: RollosService,
     private readonly espigasService: EspigasService,
+    private readonly fotosService: FotosService,
   ) {}
 
   // ==================== LIQUIDACIONES ====================
@@ -136,5 +142,26 @@ export class LiquidacionesController {
     @Param('espigaId') espigaId: string,
   ) {
     return this.espigasService.remove(rolloId, espigaId);
+  }
+
+  // ==================== FOTOS ====================
+
+  @Post('liquidaciones/:liquidacionId/fotos')
+  @UseInterceptors(
+    FileInterceptor('foto', {
+      limits: { fileSize: 10 * 1024 * 1024 }, // 10MB max
+    }),
+  )
+  uploadFoto(
+    @Param('liquidacionId') liquidacionId: string,
+    @UploadedFile() file: Express.Multer.File,
+    @Body() uploadFotoDto: UploadFotoDto,
+  ) {
+    return this.fotosService.upload(liquidacionId, file, uploadFotoDto);
+  }
+
+  @Delete('fotos/:fotoId')
+  removeFoto(@Param('fotoId') fotoId: string) {
+    return this.fotosService.remove(fotoId);
   }
 }

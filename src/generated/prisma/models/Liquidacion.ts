@@ -31,7 +31,6 @@ export type LiquidacionMinAggregateOutputType = {
   clienteId: string | null
   ordenProduccion: string | null
   referencia: string | null
-  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion | null
   eliminada: boolean | null
@@ -46,7 +45,6 @@ export type LiquidacionMaxAggregateOutputType = {
   clienteId: string | null
   ordenProduccion: string | null
   referencia: string | null
-  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion | null
   eliminada: boolean | null
@@ -61,7 +59,6 @@ export type LiquidacionCountAggregateOutputType = {
   clienteId: number
   ordenProduccion: number
   referencia: number
-  materialPrincipal: number
   observaciones: number
   estado: number
   eliminada: number
@@ -78,7 +75,6 @@ export type LiquidacionMinAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
-  materialPrincipal?: true
   observaciones?: true
   estado?: true
   eliminada?: true
@@ -93,7 +89,6 @@ export type LiquidacionMaxAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
-  materialPrincipal?: true
   observaciones?: true
   estado?: true
   eliminada?: true
@@ -108,7 +103,6 @@ export type LiquidacionCountAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
-  materialPrincipal?: true
   observaciones?: true
   estado?: true
   eliminada?: true
@@ -196,7 +190,6 @@ export type LiquidacionGroupByOutputType = {
   clienteId: string
   ordenProduccion: string | null
   referencia: string | null
-  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion
   eliminada: boolean
@@ -232,7 +225,6 @@ export type LiquidacionWhereInput = {
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
-  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
@@ -240,6 +232,7 @@ export type LiquidacionWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
   rollos?: Prisma.RolloListRelationFilter
+  fotos?: Prisma.FotoListRelationFilter
 }
 
 export type LiquidacionOrderByWithRelationInput = {
@@ -249,7 +242,6 @@ export type LiquidacionOrderByWithRelationInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrderInput | Prisma.SortOrder
   referencia?: Prisma.SortOrderInput | Prisma.SortOrder
-  materialPrincipal?: Prisma.SortOrderInput | Prisma.SortOrder
   observaciones?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
@@ -257,6 +249,7 @@ export type LiquidacionOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   cliente?: Prisma.ClienteOrderByWithRelationInput
   rollos?: Prisma.RolloOrderByRelationAggregateInput
+  fotos?: Prisma.FotoOrderByRelationAggregateInput
 }
 
 export type LiquidacionWhereUniqueInput = Prisma.AtLeast<{
@@ -269,7 +262,6 @@ export type LiquidacionWhereUniqueInput = Prisma.AtLeast<{
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
-  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
@@ -277,6 +269,7 @@ export type LiquidacionWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
   rollos?: Prisma.RolloListRelationFilter
+  fotos?: Prisma.FotoListRelationFilter
 }, "id" | "numero">
 
 export type LiquidacionOrderByWithAggregationInput = {
@@ -286,7 +279,6 @@ export type LiquidacionOrderByWithAggregationInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrderInput | Prisma.SortOrder
   referencia?: Prisma.SortOrderInput | Prisma.SortOrder
-  materialPrincipal?: Prisma.SortOrderInput | Prisma.SortOrder
   observaciones?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
@@ -307,7 +299,6 @@ export type LiquidacionScalarWhereWithAggregatesInput = {
   clienteId?: Prisma.StringWithAggregatesFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
-  materialPrincipal?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionWithAggregatesFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolWithAggregatesFilter<"Liquidacion"> | boolean
@@ -321,7 +312,6 @@ export type LiquidacionCreateInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
@@ -329,6 +319,7 @@ export type LiquidacionCreateInput = {
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
   rollos?: Prisma.RolloCreateNestedManyWithoutLiquidacionInput
+  fotos?: Prisma.FotoCreateNestedManyWithoutLiquidacionInput
 }
 
 export type LiquidacionUncheckedCreateInput = {
@@ -338,13 +329,13 @@ export type LiquidacionUncheckedCreateInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
+  fotos?: Prisma.FotoUncheckedCreateNestedManyWithoutLiquidacionInput
 }
 
 export type LiquidacionUpdateInput = {
@@ -353,7 +344,6 @@ export type LiquidacionUpdateInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -361,6 +351,7 @@ export type LiquidacionUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
   rollos?: Prisma.RolloUpdateManyWithoutLiquidacionNestedInput
+  fotos?: Prisma.FotoUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionUncheckedUpdateInput = {
@@ -370,13 +361,13 @@ export type LiquidacionUncheckedUpdateInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
+  fotos?: Prisma.FotoUncheckedUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionCreateManyInput = {
@@ -386,7 +377,6 @@ export type LiquidacionCreateManyInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
@@ -400,7 +390,6 @@ export type LiquidacionUpdateManyMutationInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -415,7 +404,6 @@ export type LiquidacionUncheckedUpdateManyInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -440,7 +428,6 @@ export type LiquidacionCountOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
-  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
@@ -455,7 +442,6 @@ export type LiquidacionMaxOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
-  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
@@ -470,7 +456,6 @@ export type LiquidacionMinOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
-  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
@@ -529,6 +514,20 @@ export type EnumEstadoLiquidacionFieldUpdateOperationsInput = {
   set?: $Enums.EstadoLiquidacion
 }
 
+export type LiquidacionCreateNestedOneWithoutFotosInput = {
+  create?: Prisma.XOR<Prisma.LiquidacionCreateWithoutFotosInput, Prisma.LiquidacionUncheckedCreateWithoutFotosInput>
+  connectOrCreate?: Prisma.LiquidacionCreateOrConnectWithoutFotosInput
+  connect?: Prisma.LiquidacionWhereUniqueInput
+}
+
+export type LiquidacionUpdateOneRequiredWithoutFotosNestedInput = {
+  create?: Prisma.XOR<Prisma.LiquidacionCreateWithoutFotosInput, Prisma.LiquidacionUncheckedCreateWithoutFotosInput>
+  connectOrCreate?: Prisma.LiquidacionCreateOrConnectWithoutFotosInput
+  upsert?: Prisma.LiquidacionUpsertWithoutFotosInput
+  connect?: Prisma.LiquidacionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LiquidacionUpdateToOneWithWhereWithoutFotosInput, Prisma.LiquidacionUpdateWithoutFotosInput>, Prisma.LiquidacionUncheckedUpdateWithoutFotosInput>
+}
+
 export type LiquidacionCreateNestedOneWithoutRollosInput = {
   create?: Prisma.XOR<Prisma.LiquidacionCreateWithoutRollosInput, Prisma.LiquidacionUncheckedCreateWithoutRollosInput>
   connectOrCreate?: Prisma.LiquidacionCreateOrConnectWithoutRollosInput
@@ -549,13 +548,13 @@ export type LiquidacionCreateWithoutClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloCreateNestedManyWithoutLiquidacionInput
+  fotos?: Prisma.FotoCreateNestedManyWithoutLiquidacionInput
 }
 
 export type LiquidacionUncheckedCreateWithoutClienteInput = {
@@ -564,13 +563,13 @@ export type LiquidacionUncheckedCreateWithoutClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
+  fotos?: Prisma.FotoUncheckedCreateNestedManyWithoutLiquidacionInput
 }
 
 export type LiquidacionCreateOrConnectWithoutClienteInput = {
@@ -609,12 +608,87 @@ export type LiquidacionScalarWhereInput = {
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
-  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
+}
+
+export type LiquidacionCreateWithoutFotosInput = {
+  id?: string
+  numero: string
+  fecha: Date | string
+  ordenProduccion?: string | null
+  referencia?: string | null
+  observaciones?: string | null
+  estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
+  rollos?: Prisma.RolloCreateNestedManyWithoutLiquidacionInput
+}
+
+export type LiquidacionUncheckedCreateWithoutFotosInput = {
+  id?: string
+  numero: string
+  fecha: Date | string
+  clienteId: string
+  ordenProduccion?: string | null
+  referencia?: string | null
+  observaciones?: string | null
+  estado?: $Enums.EstadoLiquidacion
+  eliminada?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
+}
+
+export type LiquidacionCreateOrConnectWithoutFotosInput = {
+  where: Prisma.LiquidacionWhereUniqueInput
+  create: Prisma.XOR<Prisma.LiquidacionCreateWithoutFotosInput, Prisma.LiquidacionUncheckedCreateWithoutFotosInput>
+}
+
+export type LiquidacionUpsertWithoutFotosInput = {
+  update: Prisma.XOR<Prisma.LiquidacionUpdateWithoutFotosInput, Prisma.LiquidacionUncheckedUpdateWithoutFotosInput>
+  create: Prisma.XOR<Prisma.LiquidacionCreateWithoutFotosInput, Prisma.LiquidacionUncheckedCreateWithoutFotosInput>
+  where?: Prisma.LiquidacionWhereInput
+}
+
+export type LiquidacionUpdateToOneWithWhereWithoutFotosInput = {
+  where?: Prisma.LiquidacionWhereInput
+  data: Prisma.XOR<Prisma.LiquidacionUpdateWithoutFotosInput, Prisma.LiquidacionUncheckedUpdateWithoutFotosInput>
+}
+
+export type LiquidacionUpdateWithoutFotosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  numero?: Prisma.StringFieldUpdateOperationsInput | string
+  fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
+  rollos?: Prisma.RolloUpdateManyWithoutLiquidacionNestedInput
+}
+
+export type LiquidacionUncheckedUpdateWithoutFotosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  numero?: Prisma.StringFieldUpdateOperationsInput | string
+  fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  clienteId?: Prisma.StringFieldUpdateOperationsInput | string
+  ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
+  eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionCreateWithoutRollosInput = {
@@ -623,13 +697,13 @@ export type LiquidacionCreateWithoutRollosInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
+  fotos?: Prisma.FotoCreateNestedManyWithoutLiquidacionInput
 }
 
 export type LiquidacionUncheckedCreateWithoutRollosInput = {
@@ -639,12 +713,12 @@ export type LiquidacionUncheckedCreateWithoutRollosInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  fotos?: Prisma.FotoUncheckedCreateNestedManyWithoutLiquidacionInput
 }
 
 export type LiquidacionCreateOrConnectWithoutRollosInput = {
@@ -669,13 +743,13 @@ export type LiquidacionUpdateWithoutRollosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
+  fotos?: Prisma.FotoUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionUncheckedUpdateWithoutRollosInput = {
@@ -685,12 +759,12 @@ export type LiquidacionUncheckedUpdateWithoutRollosInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fotos?: Prisma.FotoUncheckedUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionCreateManyClienteInput = {
@@ -699,7 +773,6 @@ export type LiquidacionCreateManyClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
-  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
@@ -713,13 +786,13 @@ export type LiquidacionUpdateWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUpdateManyWithoutLiquidacionNestedInput
+  fotos?: Prisma.FotoUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionUncheckedUpdateWithoutClienteInput = {
@@ -728,13 +801,13 @@ export type LiquidacionUncheckedUpdateWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
+  fotos?: Prisma.FotoUncheckedUpdateManyWithoutLiquidacionNestedInput
 }
 
 export type LiquidacionUncheckedUpdateManyWithoutClienteInput = {
@@ -743,7 +816,6 @@ export type LiquidacionUncheckedUpdateManyWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -758,10 +830,12 @@ export type LiquidacionUncheckedUpdateManyWithoutClienteInput = {
 
 export type LiquidacionCountOutputType = {
   rollos: number
+  fotos: number
 }
 
 export type LiquidacionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   rollos?: boolean | LiquidacionCountOutputTypeCountRollosArgs
+  fotos?: boolean | LiquidacionCountOutputTypeCountFotosArgs
 }
 
 /**
@@ -781,6 +855,13 @@ export type LiquidacionCountOutputTypeCountRollosArgs<ExtArgs extends runtime.Ty
   where?: Prisma.RolloWhereInput
 }
 
+/**
+ * LiquidacionCountOutputType without action
+ */
+export type LiquidacionCountOutputTypeCountFotosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FotoWhereInput
+}
+
 
 export type LiquidacionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -789,7 +870,6 @@ export type LiquidacionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
-  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
@@ -797,6 +877,7 @@ export type LiquidacionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
   rollos?: boolean | Prisma.Liquidacion$rollosArgs<ExtArgs>
+  fotos?: boolean | Prisma.Liquidacion$fotosArgs<ExtArgs>
   _count?: boolean | Prisma.LiquidacionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["liquidacion"]>
 
@@ -807,7 +888,6 @@ export type LiquidacionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
-  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
@@ -823,7 +903,6 @@ export type LiquidacionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
-  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
@@ -839,7 +918,6 @@ export type LiquidacionSelectScalar = {
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
-  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
@@ -847,10 +925,11 @@ export type LiquidacionSelectScalar = {
   updatedAt?: boolean
 }
 
-export type LiquidacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "fecha" | "clienteId" | "ordenProduccion" | "referencia" | "materialPrincipal" | "observaciones" | "estado" | "eliminada" | "createdAt" | "updatedAt", ExtArgs["result"]["liquidacion"]>
+export type LiquidacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "fecha" | "clienteId" | "ordenProduccion" | "referencia" | "observaciones" | "estado" | "eliminada" | "createdAt" | "updatedAt", ExtArgs["result"]["liquidacion"]>
 export type LiquidacionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
   rollos?: boolean | Prisma.Liquidacion$rollosArgs<ExtArgs>
+  fotos?: boolean | Prisma.Liquidacion$fotosArgs<ExtArgs>
   _count?: boolean | Prisma.LiquidacionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type LiquidacionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -865,6 +944,7 @@ export type $LiquidacionPayload<ExtArgs extends runtime.Types.Extensions.Interna
   objects: {
     cliente: Prisma.$ClientePayload<ExtArgs>
     rollos: Prisma.$RolloPayload<ExtArgs>[]
+    fotos: Prisma.$FotoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -873,7 +953,6 @@ export type $LiquidacionPayload<ExtArgs extends runtime.Types.Extensions.Interna
     clienteId: string
     ordenProduccion: string | null
     referencia: string | null
-    materialPrincipal: string | null
     observaciones: string | null
     estado: $Enums.EstadoLiquidacion
     eliminada: boolean
@@ -1275,6 +1354,7 @@ export interface Prisma__LiquidacionClient<T, Null = never, ExtArgs extends runt
   readonly [Symbol.toStringTag]: "PrismaPromise"
   cliente<T extends Prisma.ClienteDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteDefaultArgs<ExtArgs>>): Prisma.Prisma__ClienteClient<runtime.Types.Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   rollos<T extends Prisma.Liquidacion$rollosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Liquidacion$rollosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RolloPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fotos<T extends Prisma.Liquidacion$fotosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Liquidacion$fotosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FotoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1310,7 +1390,6 @@ export interface LiquidacionFieldRefs {
   readonly clienteId: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly ordenProduccion: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly referencia: Prisma.FieldRef<"Liquidacion", 'String'>
-  readonly materialPrincipal: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly observaciones: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly estado: Prisma.FieldRef<"Liquidacion", 'EstadoLiquidacion'>
   readonly eliminada: Prisma.FieldRef<"Liquidacion", 'Boolean'>
@@ -1733,6 +1812,30 @@ export type Liquidacion$rollosArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.RolloScalarFieldEnum | Prisma.RolloScalarFieldEnum[]
+}
+
+/**
+ * Liquidacion.fotos
+ */
+export type Liquidacion$fotosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Foto
+   */
+  select?: Prisma.FotoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Foto
+   */
+  omit?: Prisma.FotoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FotoInclude<ExtArgs> | null
+  where?: Prisma.FotoWhereInput
+  orderBy?: Prisma.FotoOrderByWithRelationInput | Prisma.FotoOrderByWithRelationInput[]
+  cursor?: Prisma.FotoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FotoScalarFieldEnum | Prisma.FotoScalarFieldEnum[]
 }
 
 /**

@@ -33,6 +33,11 @@ export type Cliente = Prisma.ClienteModel
  */
 export type Liquidacion = Prisma.LiquidacionModel
 /**
+ * Model Foto
+ * 
+ */
+export type Foto = Prisma.FotoModel
+/**
  * Model Rollo
  * 
  */

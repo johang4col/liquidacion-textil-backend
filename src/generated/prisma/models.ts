@@ -11,6 +11,7 @@
 export type * from './models/User'
 export type * from './models/Cliente'
 export type * from './models/Liquidacion'
+export type * from './models/Foto'
 export type * from './models/Rollo'
 export type * from './models/Espiga'
 export type * from './models/Configuracion'

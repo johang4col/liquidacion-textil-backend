@@ -54,6 +54,7 @@ export const ModelName = {
   User: 'User',
   Cliente: 'Cliente',
   Liquidacion: 'Liquidacion',
+  Foto: 'Foto',
   Rollo: 'Rollo',
   Espiga: 'Espiga',
   Configuracion: 'Configuracion'
@@ -109,7 +110,6 @@ export const LiquidacionScalarFieldEnum = {
   clienteId: 'clienteId',
   ordenProduccion: 'ordenProduccion',
   referencia: 'referencia',
-  materialPrincipal: 'materialPrincipal',
   observaciones: 'observaciones',
   estado: 'estado',
   eliminada: 'eliminada',
@@ -118,6 +118,18 @@ export const LiquidacionScalarFieldEnum = {
 } as const
 
 export type LiquidacionScalarFieldEnum = (typeof LiquidacionScalarFieldEnum)[keyof typeof LiquidacionScalarFieldEnum]
+
+
+export const FotoScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  publicId: 'publicId',
+  categoria: 'categoria',
+  liquidacionId: 'liquidacionId',
+  createdAt: 'createdAt'
+} as const
+
+export type FotoScalarFieldEnum = (typeof FotoScalarFieldEnum)[keyof typeof FotoScalarFieldEnum]
 
 
 export const RolloScalarFieldEnum = {

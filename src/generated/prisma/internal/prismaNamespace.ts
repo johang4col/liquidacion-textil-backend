@@ -387,6 +387,7 @@ export const ModelName = {
   User: 'User',
   Cliente: 'Cliente',
   Liquidacion: 'Liquidacion',
+  Foto: 'Foto',
   Rollo: 'Rollo',
   Espiga: 'Espiga',
   Configuracion: 'Configuracion'
@@ -405,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "cliente" | "liquidacion" | "rollo" | "espiga" | "configuracion"
+    modelProps: "user" | "cliente" | "liquidacion" | "foto" | "rollo" | "espiga" | "configuracion"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -628,6 +629,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.LiquidacionCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.LiquidacionCountAggregateOutputType> | number
+        }
+      }
+    }
+    Foto: {
+      payload: Prisma.$FotoPayload<ExtArgs>
+      fields: Prisma.FotoFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FotoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FotoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>
+        }
+        findFirst: {
+          args: Prisma.FotoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FotoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>
+        }
+        findMany: {
+          args: Prisma.FotoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>[]
+        }
+        create: {
+          args: Prisma.FotoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>
+        }
+        createMany: {
+          args: Prisma.FotoCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FotoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>[]
+        }
+        delete: {
+          args: Prisma.FotoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>
+        }
+        update: {
+          args: Prisma.FotoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>
+        }
+        deleteMany: {
+          args: Prisma.FotoDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FotoUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FotoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>[]
+        }
+        upsert: {
+          args: Prisma.FotoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FotoPayload>
+        }
+        aggregate: {
+          args: Prisma.FotoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFoto>
+        }
+        groupBy: {
+          args: Prisma.FotoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FotoGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FotoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FotoCountAggregateOutputType> | number
         }
       }
     }
@@ -926,7 +1001,6 @@ export const LiquidacionScalarFieldEnum = {
   clienteId: 'clienteId',
   ordenProduccion: 'ordenProduccion',
   referencia: 'referencia',
-  materialPrincipal: 'materialPrincipal',
   observaciones: 'observaciones',
   estado: 'estado',
   eliminada: 'eliminada',
@@ -935,6 +1009,18 @@ export const LiquidacionScalarFieldEnum = {
 } as const
 
 export type LiquidacionScalarFieldEnum = (typeof LiquidacionScalarFieldEnum)[keyof typeof LiquidacionScalarFieldEnum]
+
+
+export const FotoScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  publicId: 'publicId',
+  categoria: 'categoria',
+  liquidacionId: 'liquidacionId',
+  createdAt: 'createdAt'
+} as const
+
+export type FotoScalarFieldEnum = (typeof FotoScalarFieldEnum)[keyof typeof FotoScalarFieldEnum]
 
 
 export const RolloScalarFieldEnum = {
@@ -1215,6 +1301,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   cliente?: Prisma.ClienteOmit
   liquidacion?: Prisma.LiquidacionOmit
+  foto?: Prisma.FotoOmit
   rollo?: Prisma.RolloOmit
   espiga?: Prisma.EspigaOmit
   configuracion?: Prisma.ConfiguracionOmit
