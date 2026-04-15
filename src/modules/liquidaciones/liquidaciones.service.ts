@@ -66,7 +66,7 @@ export class LiquidacionesService {
           estampadoPiezas: createLiquidacionDto.estampadoPiezas,
           bordadoPiezas: createLiquidacionDto.bordadoPiezas,
           fusionadosPiezas: createLiquidacionDto.fusionadosPiezas,
-          registroTiqueteadas: createLiquidacionDto.registroTiqueteadas ?? {},
+          registroTiqueteadas: (createLiquidacionDto.registroTiqueteadas || undefined) as any,
           despachoPaquetes: createLiquidacionDto.despachoPaquetes,
           despachoRollos: createLiquidacionDto.despachoRollos,
         },
@@ -289,7 +289,7 @@ export class LiquidacionesService {
 
       const liquidacion = await this.prisma.liquidacion.update({
         where: { id },
-        data: dataToUpdate,
+        data: dataToUpdate as any,
         include: {
           cliente: true,
         },
