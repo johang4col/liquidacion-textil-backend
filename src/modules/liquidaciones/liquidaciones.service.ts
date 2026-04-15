@@ -66,7 +66,7 @@ export class LiquidacionesService {
           estampadoPiezas: createLiquidacionDto.estampadoPiezas,
           bordadoPiezas: createLiquidacionDto.bordadoPiezas,
           fusionadosPiezas: createLiquidacionDto.fusionadosPiezas,
-          registroTiqueteadas: createLiquidacionDto.registroTiqueteadas || '{}',
+          registroTiqueteadas: createLiquidacionDto.registroTiqueteadas ?? {},
           despachoPaquetes: createLiquidacionDto.despachoPaquetes,
           despachoRollos: createLiquidacionDto.despachoRollos,
         },
