@@ -56,8 +56,19 @@ export class LiquidacionesService {
           clienteId: createLiquidacionDto.clienteId,
           ordenProduccion: createLiquidacionDto.ordenProduccion,
           referencia: createLiquidacionDto.referencia,
+          materialPrincipal: createLiquidacionDto.materialPrincipal,
           observaciones: createLiquidacionDto.observaciones,
           estado: createLiquidacionDto.estado || 'borrador',
+          muestraFisica: createLiquidacionDto.muestraFisica ?? false,
+          retazosConfeccion: createLiquidacionDto.retazosConfeccion ?? false,
+          retazosConfeccionMetros: createLiquidacionDto.retazosConfeccionMetros,
+          plantillas: createLiquidacionDto.plantillas ?? false,
+          estampadoPiezas: createLiquidacionDto.estampadoPiezas,
+          bordadoPiezas: createLiquidacionDto.bordadoPiezas,
+          fusionadosPiezas: createLiquidacionDto.fusionadosPiezas,
+          registroTiqueteadas: createLiquidacionDto.registroTiqueteadas || '{}',
+          despachoPaquetes: createLiquidacionDto.despachoPaquetes,
+          despachoRollos: createLiquidacionDto.despachoRollos,
         },
         include: {
           cliente: {
@@ -202,14 +213,7 @@ export class LiquidacionesService {
   async update(id: string, updateLiquidacionDto: UpdateLiquidacionDto) {
     try {
       // Construir objeto de actualización de forma segura
-      const dataToUpdate: {
-        fecha?: Date;
-        clienteId?: string;
-        ordenProduccion?: string | null;
-        referencia?: string | null;
-        observaciones?: string | null;
-        estado?: EstadoLiquidacion;
-      } = {};
+      const dataToUpdate: Record<string, unknown> = {};
 
       if (updateLiquidacionDto.fecha) {
         dataToUpdate.fecha = new Date(updateLiquidacionDto.fecha);
@@ -227,12 +231,60 @@ export class LiquidacionesService {
         dataToUpdate.referencia = updateLiquidacionDto.referencia;
       }
 
+      if (updateLiquidacionDto.materialPrincipal !== undefined) {
+        dataToUpdate.materialPrincipal = updateLiquidacionDto.materialPrincipal;
+      }
+
       if (updateLiquidacionDto.observaciones !== undefined) {
         dataToUpdate.observaciones = updateLiquidacionDto.observaciones;
       }
 
       if (updateLiquidacionDto.estado) {
         dataToUpdate.estado = updateLiquidacionDto.estado;
+      }
+
+      // Checkboxes
+      if (updateLiquidacionDto.muestraFisica !== undefined) {
+        dataToUpdate.muestraFisica = updateLiquidacionDto.muestraFisica;
+      }
+
+      if (updateLiquidacionDto.retazosConfeccion !== undefined) {
+        dataToUpdate.retazosConfeccion = updateLiquidacionDto.retazosConfeccion;
+      }
+
+      if (updateLiquidacionDto.retazosConfeccionMetros !== undefined) {
+        dataToUpdate.retazosConfeccionMetros = updateLiquidacionDto.retazosConfeccionMetros;
+      }
+
+      if (updateLiquidacionDto.plantillas !== undefined) {
+        dataToUpdate.plantillas = updateLiquidacionDto.plantillas;
+      }
+
+      // Procesos
+      if (updateLiquidacionDto.estampadoPiezas !== undefined) {
+        dataToUpdate.estampadoPiezas = updateLiquidacionDto.estampadoPiezas;
+      }
+
+      if (updateLiquidacionDto.bordadoPiezas !== undefined) {
+        dataToUpdate.bordadoPiezas = updateLiquidacionDto.bordadoPiezas;
+      }
+
+      if (updateLiquidacionDto.fusionadosPiezas !== undefined) {
+        dataToUpdate.fusionadosPiezas = updateLiquidacionDto.fusionadosPiezas;
+      }
+
+      // Registro tiqueteadas
+      if (updateLiquidacionDto.registroTiqueteadas !== undefined) {
+        dataToUpdate.registroTiqueteadas = updateLiquidacionDto.registroTiqueteadas;
+      }
+
+      // Despacho
+      if (updateLiquidacionDto.despachoPaquetes !== undefined) {
+        dataToUpdate.despachoPaquetes = updateLiquidacionDto.despachoPaquetes;
+      }
+
+      if (updateLiquidacionDto.despachoRollos !== undefined) {
+        dataToUpdate.despachoRollos = updateLiquidacionDto.despachoRollos;
       }
 
       const liquidacion = await this.prisma.liquidacion.update({

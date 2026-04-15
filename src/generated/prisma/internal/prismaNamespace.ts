@@ -1001,9 +1001,20 @@ export const LiquidacionScalarFieldEnum = {
   clienteId: 'clienteId',
   ordenProduccion: 'ordenProduccion',
   referencia: 'referencia',
+  materialPrincipal: 'materialPrincipal',
   observaciones: 'observaciones',
   estado: 'estado',
   eliminada: 'eliminada',
+  muestraFisica: 'muestraFisica',
+  retazosConfeccion: 'retazosConfeccion',
+  retazosConfeccionMetros: 'retazosConfeccionMetros',
+  plantillas: 'plantillas',
+  estampadoPiezas: 'estampadoPiezas',
+  bordadoPiezas: 'bordadoPiezas',
+  fusionadosPiezas: 'fusionadosPiezas',
+  registroTiqueteadas: 'registroTiqueteadas',
+  despachoPaquetes: 'despachoPaquetes',
+  despachoRollos: 'despachoRollos',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1163,20 +1174,6 @@ export type ListEnumEstadoLiquidacionFieldRefInput<$PrismaModel> = FieldRefInput
 
 
 /**
- * Reference to a field of type 'Int'
- */
-export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-/**
- * Reference to a field of type 'Int[]'
- */
-export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1187,6 +1184,20 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Float[]'
  */
 export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Int'
+ */
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 

@@ -20,8 +20,28 @@ export type LiquidacionModel = runtime.Types.Result.DefaultSelection<Prisma.$Liq
 
 export type AggregateLiquidacion = {
   _count: LiquidacionCountAggregateOutputType | null
+  _avg: LiquidacionAvgAggregateOutputType | null
+  _sum: LiquidacionSumAggregateOutputType | null
   _min: LiquidacionMinAggregateOutputType | null
   _max: LiquidacionMaxAggregateOutputType | null
+}
+
+export type LiquidacionAvgAggregateOutputType = {
+  retazosConfeccionMetros: number | null
+  estampadoPiezas: number | null
+  bordadoPiezas: number | null
+  fusionadosPiezas: number | null
+  despachoPaquetes: number | null
+  despachoRollos: number | null
+}
+
+export type LiquidacionSumAggregateOutputType = {
+  retazosConfeccionMetros: number | null
+  estampadoPiezas: number | null
+  bordadoPiezas: number | null
+  fusionadosPiezas: number | null
+  despachoPaquetes: number | null
+  despachoRollos: number | null
 }
 
 export type LiquidacionMinAggregateOutputType = {
@@ -31,9 +51,19 @@ export type LiquidacionMinAggregateOutputType = {
   clienteId: string | null
   ordenProduccion: string | null
   referencia: string | null
+  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion | null
   eliminada: boolean | null
+  muestraFisica: boolean | null
+  retazosConfeccion: boolean | null
+  retazosConfeccionMetros: number | null
+  plantillas: boolean | null
+  estampadoPiezas: number | null
+  bordadoPiezas: number | null
+  fusionadosPiezas: number | null
+  despachoPaquetes: number | null
+  despachoRollos: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -45,9 +75,19 @@ export type LiquidacionMaxAggregateOutputType = {
   clienteId: string | null
   ordenProduccion: string | null
   referencia: string | null
+  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion | null
   eliminada: boolean | null
+  muestraFisica: boolean | null
+  retazosConfeccion: boolean | null
+  retazosConfeccionMetros: number | null
+  plantillas: boolean | null
+  estampadoPiezas: number | null
+  bordadoPiezas: number | null
+  fusionadosPiezas: number | null
+  despachoPaquetes: number | null
+  despachoRollos: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -59,14 +99,43 @@ export type LiquidacionCountAggregateOutputType = {
   clienteId: number
   ordenProduccion: number
   referencia: number
+  materialPrincipal: number
   observaciones: number
   estado: number
   eliminada: number
+  muestraFisica: number
+  retazosConfeccion: number
+  retazosConfeccionMetros: number
+  plantillas: number
+  estampadoPiezas: number
+  bordadoPiezas: number
+  fusionadosPiezas: number
+  registroTiqueteadas: number
+  despachoPaquetes: number
+  despachoRollos: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
+
+export type LiquidacionAvgAggregateInputType = {
+  retazosConfeccionMetros?: true
+  estampadoPiezas?: true
+  bordadoPiezas?: true
+  fusionadosPiezas?: true
+  despachoPaquetes?: true
+  despachoRollos?: true
+}
+
+export type LiquidacionSumAggregateInputType = {
+  retazosConfeccionMetros?: true
+  estampadoPiezas?: true
+  bordadoPiezas?: true
+  fusionadosPiezas?: true
+  despachoPaquetes?: true
+  despachoRollos?: true
+}
 
 export type LiquidacionMinAggregateInputType = {
   id?: true
@@ -75,9 +144,19 @@ export type LiquidacionMinAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
+  materialPrincipal?: true
   observaciones?: true
   estado?: true
   eliminada?: true
+  muestraFisica?: true
+  retazosConfeccion?: true
+  retazosConfeccionMetros?: true
+  plantillas?: true
+  estampadoPiezas?: true
+  bordadoPiezas?: true
+  fusionadosPiezas?: true
+  despachoPaquetes?: true
+  despachoRollos?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -89,9 +168,19 @@ export type LiquidacionMaxAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
+  materialPrincipal?: true
   observaciones?: true
   estado?: true
   eliminada?: true
+  muestraFisica?: true
+  retazosConfeccion?: true
+  retazosConfeccionMetros?: true
+  plantillas?: true
+  estampadoPiezas?: true
+  bordadoPiezas?: true
+  fusionadosPiezas?: true
+  despachoPaquetes?: true
+  despachoRollos?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -103,9 +192,20 @@ export type LiquidacionCountAggregateInputType = {
   clienteId?: true
   ordenProduccion?: true
   referencia?: true
+  materialPrincipal?: true
   observaciones?: true
   estado?: true
   eliminada?: true
+  muestraFisica?: true
+  retazosConfeccion?: true
+  retazosConfeccionMetros?: true
+  plantillas?: true
+  estampadoPiezas?: true
+  bordadoPiezas?: true
+  fusionadosPiezas?: true
+  registroTiqueteadas?: true
+  despachoPaquetes?: true
+  despachoRollos?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -149,6 +249,18 @@ export type LiquidacionAggregateArgs<ExtArgs extends runtime.Types.Extensions.In
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: LiquidacionAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: LiquidacionSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: LiquidacionMinAggregateInputType
@@ -179,6 +291,8 @@ export type LiquidacionGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   _count?: LiquidacionCountAggregateInputType | true
+  _avg?: LiquidacionAvgAggregateInputType
+  _sum?: LiquidacionSumAggregateInputType
   _min?: LiquidacionMinAggregateInputType
   _max?: LiquidacionMaxAggregateInputType
 }
@@ -190,12 +304,25 @@ export type LiquidacionGroupByOutputType = {
   clienteId: string
   ordenProduccion: string | null
   referencia: string | null
+  materialPrincipal: string | null
   observaciones: string | null
   estado: $Enums.EstadoLiquidacion
   eliminada: boolean
+  muestraFisica: boolean
+  retazosConfeccion: boolean
+  retazosConfeccionMetros: number | null
+  plantillas: boolean
+  estampadoPiezas: number | null
+  bordadoPiezas: number | null
+  fusionadosPiezas: number | null
+  registroTiqueteadas: runtime.JsonValue
+  despachoPaquetes: number | null
+  despachoRollos: number | null
   createdAt: Date
   updatedAt: Date
   _count: LiquidacionCountAggregateOutputType | null
+  _avg: LiquidacionAvgAggregateOutputType | null
+  _sum: LiquidacionSumAggregateOutputType | null
   _min: LiquidacionMinAggregateOutputType | null
   _max: LiquidacionMaxAggregateOutputType | null
 }
@@ -225,9 +352,20 @@ export type LiquidacionWhereInput = {
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  muestraFisica?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  retazosConfeccion?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  retazosConfeccionMetros?: Prisma.FloatNullableFilter<"Liquidacion"> | number | null
+  plantillas?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  estampadoPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  bordadoPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  fusionadosPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  registroTiqueteadas?: Prisma.JsonFilter<"Liquidacion">
+  despachoPaquetes?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  despachoRollos?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
@@ -242,9 +380,20 @@ export type LiquidacionOrderByWithRelationInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrderInput | Prisma.SortOrder
   referencia?: Prisma.SortOrderInput | Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrderInput | Prisma.SortOrder
   observaciones?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
+  muestraFisica?: Prisma.SortOrder
+  retazosConfeccion?: Prisma.SortOrder
+  retazosConfeccionMetros?: Prisma.SortOrderInput | Prisma.SortOrder
+  plantillas?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrderInput | Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrderInput | Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrderInput | Prisma.SortOrder
+  registroTiqueteadas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrderInput | Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   cliente?: Prisma.ClienteOrderByWithRelationInput
@@ -262,9 +411,20 @@ export type LiquidacionWhereUniqueInput = Prisma.AtLeast<{
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  muestraFisica?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  retazosConfeccion?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  retazosConfeccionMetros?: Prisma.FloatNullableFilter<"Liquidacion"> | number | null
+  plantillas?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  estampadoPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  bordadoPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  fusionadosPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  registroTiqueteadas?: Prisma.JsonFilter<"Liquidacion">
+  despachoPaquetes?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  despachoRollos?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
@@ -279,14 +439,27 @@ export type LiquidacionOrderByWithAggregationInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrderInput | Prisma.SortOrder
   referencia?: Prisma.SortOrderInput | Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrderInput | Prisma.SortOrder
   observaciones?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
+  muestraFisica?: Prisma.SortOrder
+  retazosConfeccion?: Prisma.SortOrder
+  retazosConfeccionMetros?: Prisma.SortOrderInput | Prisma.SortOrder
+  plantillas?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrderInput | Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrderInput | Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrderInput | Prisma.SortOrder
+  registroTiqueteadas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrderInput | Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.LiquidacionCountOrderByAggregateInput
+  _avg?: Prisma.LiquidacionAvgOrderByAggregateInput
   _max?: Prisma.LiquidacionMaxOrderByAggregateInput
   _min?: Prisma.LiquidacionMinOrderByAggregateInput
+  _sum?: Prisma.LiquidacionSumOrderByAggregateInput
 }
 
 export type LiquidacionScalarWhereWithAggregatesInput = {
@@ -299,9 +472,20 @@ export type LiquidacionScalarWhereWithAggregatesInput = {
   clienteId?: Prisma.StringWithAggregatesFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableWithAggregatesFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionWithAggregatesFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolWithAggregatesFilter<"Liquidacion"> | boolean
+  muestraFisica?: Prisma.BoolWithAggregatesFilter<"Liquidacion"> | boolean
+  retazosConfeccion?: Prisma.BoolWithAggregatesFilter<"Liquidacion"> | boolean
+  retazosConfeccionMetros?: Prisma.FloatNullableWithAggregatesFilter<"Liquidacion"> | number | null
+  plantillas?: Prisma.BoolWithAggregatesFilter<"Liquidacion"> | boolean
+  estampadoPiezas?: Prisma.IntNullableWithAggregatesFilter<"Liquidacion"> | number | null
+  bordadoPiezas?: Prisma.IntNullableWithAggregatesFilter<"Liquidacion"> | number | null
+  fusionadosPiezas?: Prisma.IntNullableWithAggregatesFilter<"Liquidacion"> | number | null
+  registroTiqueteadas?: Prisma.JsonWithAggregatesFilter<"Liquidacion">
+  despachoPaquetes?: Prisma.IntNullableWithAggregatesFilter<"Liquidacion"> | number | null
+  despachoRollos?: Prisma.IntNullableWithAggregatesFilter<"Liquidacion"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Liquidacion"> | Date | string
 }
@@ -312,9 +496,20 @@ export type LiquidacionCreateInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
@@ -329,9 +524,20 @@ export type LiquidacionUncheckedCreateInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
@@ -344,9 +550,20 @@ export type LiquidacionUpdateInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
@@ -361,9 +578,20 @@ export type LiquidacionUncheckedUpdateInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
@@ -377,9 +605,20 @@ export type LiquidacionCreateManyInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -390,9 +629,20 @@ export type LiquidacionUpdateManyMutationInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -404,9 +654,20 @@ export type LiquidacionUncheckedUpdateManyInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -428,11 +689,31 @@ export type LiquidacionCountOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
+  muestraFisica?: Prisma.SortOrder
+  retazosConfeccion?: Prisma.SortOrder
+  retazosConfeccionMetros?: Prisma.SortOrder
+  plantillas?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrder
+  registroTiqueteadas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type LiquidacionAvgOrderByAggregateInput = {
+  retazosConfeccionMetros?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrder
 }
 
 export type LiquidacionMaxOrderByAggregateInput = {
@@ -442,9 +723,19 @@ export type LiquidacionMaxOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
+  muestraFisica?: Prisma.SortOrder
+  retazosConfeccion?: Prisma.SortOrder
+  retazosConfeccionMetros?: Prisma.SortOrder
+  plantillas?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -456,11 +747,30 @@ export type LiquidacionMinOrderByAggregateInput = {
   clienteId?: Prisma.SortOrder
   ordenProduccion?: Prisma.SortOrder
   referencia?: Prisma.SortOrder
+  materialPrincipal?: Prisma.SortOrder
   observaciones?: Prisma.SortOrder
   estado?: Prisma.SortOrder
   eliminada?: Prisma.SortOrder
+  muestraFisica?: Prisma.SortOrder
+  retazosConfeccion?: Prisma.SortOrder
+  retazosConfeccionMetros?: Prisma.SortOrder
+  plantillas?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type LiquidacionSumOrderByAggregateInput = {
+  retazosConfeccionMetros?: Prisma.SortOrder
+  estampadoPiezas?: Prisma.SortOrder
+  bordadoPiezas?: Prisma.SortOrder
+  fusionadosPiezas?: Prisma.SortOrder
+  despachoPaquetes?: Prisma.SortOrder
+  despachoRollos?: Prisma.SortOrder
 }
 
 export type LiquidacionScalarRelationFilter = {
@@ -514,6 +824,22 @@ export type EnumEstadoLiquidacionFieldUpdateOperationsInput = {
   set?: $Enums.EstadoLiquidacion
 }
 
+export type NullableFloatFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type LiquidacionCreateNestedOneWithoutFotosInput = {
   create?: Prisma.XOR<Prisma.LiquidacionCreateWithoutFotosInput, Prisma.LiquidacionUncheckedCreateWithoutFotosInput>
   connectOrCreate?: Prisma.LiquidacionCreateOrConnectWithoutFotosInput
@@ -548,9 +874,20 @@ export type LiquidacionCreateWithoutClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloCreateNestedManyWithoutLiquidacionInput
@@ -563,9 +900,20 @@ export type LiquidacionUncheckedCreateWithoutClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
@@ -608,9 +956,20 @@ export type LiquidacionScalarWhereInput = {
   clienteId?: Prisma.StringFilter<"Liquidacion"> | string
   ordenProduccion?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   referencia?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
+  materialPrincipal?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   observaciones?: Prisma.StringNullableFilter<"Liquidacion"> | string | null
   estado?: Prisma.EnumEstadoLiquidacionFilter<"Liquidacion"> | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  muestraFisica?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  retazosConfeccion?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  retazosConfeccionMetros?: Prisma.FloatNullableFilter<"Liquidacion"> | number | null
+  plantillas?: Prisma.BoolFilter<"Liquidacion"> | boolean
+  estampadoPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  bordadoPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  fusionadosPiezas?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  registroTiqueteadas?: Prisma.JsonFilter<"Liquidacion">
+  despachoPaquetes?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
+  despachoRollos?: Prisma.IntNullableFilter<"Liquidacion"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Liquidacion"> | Date | string
 }
@@ -621,9 +980,20 @@ export type LiquidacionCreateWithoutFotosInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
@@ -637,9 +1007,20 @@ export type LiquidacionUncheckedCreateWithoutFotosInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   rollos?: Prisma.RolloUncheckedCreateNestedManyWithoutLiquidacionInput
@@ -667,9 +1048,20 @@ export type LiquidacionUpdateWithoutFotosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
@@ -683,9 +1075,20 @@ export type LiquidacionUncheckedUpdateWithoutFotosInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
@@ -697,9 +1100,20 @@ export type LiquidacionCreateWithoutRollosInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   cliente: Prisma.ClienteCreateNestedOneWithoutLiquidacionesInput
@@ -713,9 +1127,20 @@ export type LiquidacionUncheckedCreateWithoutRollosInput = {
   clienteId: string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   fotos?: Prisma.FotoUncheckedCreateNestedManyWithoutLiquidacionInput
@@ -743,9 +1168,20 @@ export type LiquidacionUpdateWithoutRollosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cliente?: Prisma.ClienteUpdateOneRequiredWithoutLiquidacionesNestedInput
@@ -759,9 +1195,20 @@ export type LiquidacionUncheckedUpdateWithoutRollosInput = {
   clienteId?: Prisma.StringFieldUpdateOperationsInput | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fotos?: Prisma.FotoUncheckedUpdateManyWithoutLiquidacionNestedInput
@@ -773,9 +1220,20 @@ export type LiquidacionCreateManyClienteInput = {
   fecha: Date | string
   ordenProduccion?: string | null
   referencia?: string | null
+  materialPrincipal?: string | null
   observaciones?: string | null
   estado?: $Enums.EstadoLiquidacion
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: number | null
+  plantillas?: boolean
+  estampadoPiezas?: number | null
+  bordadoPiezas?: number | null
+  fusionadosPiezas?: number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: number | null
+  despachoRollos?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -786,9 +1244,20 @@ export type LiquidacionUpdateWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUpdateManyWithoutLiquidacionNestedInput
@@ -801,9 +1270,20 @@ export type LiquidacionUncheckedUpdateWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rollos?: Prisma.RolloUncheckedUpdateManyWithoutLiquidacionNestedInput
@@ -816,9 +1296,20 @@ export type LiquidacionUncheckedUpdateManyWithoutClienteInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ordenProduccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   referencia?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  materialPrincipal?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observaciones?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   estado?: Prisma.EnumEstadoLiquidacionFieldUpdateOperationsInput | $Enums.EstadoLiquidacion
   eliminada?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  muestraFisica?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccion?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  retazosConfeccionMetros?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  plantillas?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  estampadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  bordadoPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  fusionadosPiezas?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registroTiqueteadas?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  despachoPaquetes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  despachoRollos?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -870,9 +1361,20 @@ export type LiquidacionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: boolean
+  plantillas?: boolean
+  estampadoPiezas?: boolean
+  bordadoPiezas?: boolean
+  fusionadosPiezas?: boolean
+  registroTiqueteadas?: boolean
+  despachoPaquetes?: boolean
+  despachoRollos?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
@@ -888,9 +1390,20 @@ export type LiquidacionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: boolean
+  plantillas?: boolean
+  estampadoPiezas?: boolean
+  bordadoPiezas?: boolean
+  fusionadosPiezas?: boolean
+  registroTiqueteadas?: boolean
+  despachoPaquetes?: boolean
+  despachoRollos?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
@@ -903,9 +1416,20 @@ export type LiquidacionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: boolean
+  plantillas?: boolean
+  estampadoPiezas?: boolean
+  bordadoPiezas?: boolean
+  fusionadosPiezas?: boolean
+  registroTiqueteadas?: boolean
+  despachoPaquetes?: boolean
+  despachoRollos?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
@@ -918,14 +1442,25 @@ export type LiquidacionSelectScalar = {
   clienteId?: boolean
   ordenProduccion?: boolean
   referencia?: boolean
+  materialPrincipal?: boolean
   observaciones?: boolean
   estado?: boolean
   eliminada?: boolean
+  muestraFisica?: boolean
+  retazosConfeccion?: boolean
+  retazosConfeccionMetros?: boolean
+  plantillas?: boolean
+  estampadoPiezas?: boolean
+  bordadoPiezas?: boolean
+  fusionadosPiezas?: boolean
+  registroTiqueteadas?: boolean
+  despachoPaquetes?: boolean
+  despachoRollos?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type LiquidacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "fecha" | "clienteId" | "ordenProduccion" | "referencia" | "observaciones" | "estado" | "eliminada" | "createdAt" | "updatedAt", ExtArgs["result"]["liquidacion"]>
+export type LiquidacionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numero" | "fecha" | "clienteId" | "ordenProduccion" | "referencia" | "materialPrincipal" | "observaciones" | "estado" | "eliminada" | "muestraFisica" | "retazosConfeccion" | "retazosConfeccionMetros" | "plantillas" | "estampadoPiezas" | "bordadoPiezas" | "fusionadosPiezas" | "registroTiqueteadas" | "despachoPaquetes" | "despachoRollos" | "createdAt" | "updatedAt", ExtArgs["result"]["liquidacion"]>
 export type LiquidacionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
   rollos?: boolean | Prisma.Liquidacion$rollosArgs<ExtArgs>
@@ -953,9 +1488,20 @@ export type $LiquidacionPayload<ExtArgs extends runtime.Types.Extensions.Interna
     clienteId: string
     ordenProduccion: string | null
     referencia: string | null
+    materialPrincipal: string | null
     observaciones: string | null
     estado: $Enums.EstadoLiquidacion
     eliminada: boolean
+    muestraFisica: boolean
+    retazosConfeccion: boolean
+    retazosConfeccionMetros: number | null
+    plantillas: boolean
+    estampadoPiezas: number | null
+    bordadoPiezas: number | null
+    fusionadosPiezas: number | null
+    registroTiqueteadas: runtime.JsonValue
+    despachoPaquetes: number | null
+    despachoRollos: number | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["liquidacion"]>
@@ -1390,9 +1936,20 @@ export interface LiquidacionFieldRefs {
   readonly clienteId: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly ordenProduccion: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly referencia: Prisma.FieldRef<"Liquidacion", 'String'>
+  readonly materialPrincipal: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly observaciones: Prisma.FieldRef<"Liquidacion", 'String'>
   readonly estado: Prisma.FieldRef<"Liquidacion", 'EstadoLiquidacion'>
   readonly eliminada: Prisma.FieldRef<"Liquidacion", 'Boolean'>
+  readonly muestraFisica: Prisma.FieldRef<"Liquidacion", 'Boolean'>
+  readonly retazosConfeccion: Prisma.FieldRef<"Liquidacion", 'Boolean'>
+  readonly retazosConfeccionMetros: Prisma.FieldRef<"Liquidacion", 'Float'>
+  readonly plantillas: Prisma.FieldRef<"Liquidacion", 'Boolean'>
+  readonly estampadoPiezas: Prisma.FieldRef<"Liquidacion", 'Int'>
+  readonly bordadoPiezas: Prisma.FieldRef<"Liquidacion", 'Int'>
+  readonly fusionadosPiezas: Prisma.FieldRef<"Liquidacion", 'Int'>
+  readonly registroTiqueteadas: Prisma.FieldRef<"Liquidacion", 'Json'>
+  readonly despachoPaquetes: Prisma.FieldRef<"Liquidacion", 'Int'>
+  readonly despachoRollos: Prisma.FieldRef<"Liquidacion", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Liquidacion", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Liquidacion", 'DateTime'>
 }

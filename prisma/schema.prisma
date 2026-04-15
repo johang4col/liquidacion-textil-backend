@@ -33,20 +33,36 @@ model Cliente {
 }
 
 model Liquidacion {
-  id              String              @id @default(cuid())
-  numero          String              @unique
-  fecha           DateTime
-  clienteId       String
-  cliente         Cliente             @relation(fields: [clienteId], references: [id])
-  ordenProduccion String?
-  referencia      String?
-  observaciones   String?
-  estado          EstadoLiquidacion   @default(borrador)
-  eliminada       Boolean             @default(false)
-  rollos          Rollo[]
-  fotos           Foto[]
-  createdAt       DateTime            @default(now())
-  updatedAt       DateTime            @updatedAt
+  id                      String              @id @default(cuid())
+  numero                  String              @unique
+  fecha                   DateTime
+  clienteId               String
+  cliente                 Cliente             @relation(fields: [clienteId], references: [id])
+  ordenProduccion         String?
+  referencia              String?
+  materialPrincipal       String?
+  observaciones           String?
+  estado                  EstadoLiquidacion   @default(borrador)
+  eliminada               Boolean             @default(false)
+  // Checkboxes
+  muestraFisica           Boolean             @default(false)
+  retazosConfeccion       Boolean             @default(false)
+  retazosConfeccionMetros Float?
+  plantillas              Boolean             @default(false)
+  // Procesos
+  estampadoPiezas         Int?
+  bordadoPiezas           Int?
+  fusionadosPiezas        Int?
+  // Registro tiqueteadas
+  registroTiqueteadas     Json                @default("{}")
+  // Despacho
+  despachoPaquetes        Int?
+  despachoRollos          Int?
+  // Relaciones
+  rollos                  Rollo[]
+  fotos                   Foto[]
+  createdAt               DateTime            @default(now())
+  updatedAt               DateTime            @updatedAt
 
   @@index([clienteId])
   @@index([numero])
