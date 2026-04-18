@@ -57,16 +57,16 @@ export class UpdateLiquidacionDto {
 
   // Procesos
   @IsOptional()
-  @IsNumber()
-  estampadoPiezas?: number;
+  @IsString()
+  estampadoPiezas?: string;
 
   @IsOptional()
-  @IsNumber()
-  bordadoPiezas?: number;
+  @IsString()
+  bordadoPiezas?: string;
 
   @IsOptional()
-  @IsNumber()
-  fusionadosPiezas?: number;
+  @IsString()
+  fusionadosPiezas?: string;
 
   // Registro tiqueteadas
   @IsOptional()

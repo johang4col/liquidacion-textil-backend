@@ -50,9 +50,9 @@ model Liquidacion {
   retazosConfeccionMetros Float?
   plantillas              Boolean             @default(false)
   // Procesos
-  estampadoPiezas         Int?
-  bordadoPiezas           Int?
-  fusionadosPiezas        Int?
+  estampadoPiezas         String?
+  bordadoPiezas           String?
+  fusionadosPiezas        String?
   // Registro tiqueteadas
   registroTiqueteadas     Json                @default("{}")
   // Despacho
